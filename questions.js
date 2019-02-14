@@ -36,6 +36,8 @@ function q1() {
 }
 function q2() {
 	document.getElementById('picture').src = 'pics/q2.jpg';
+	ans = ['correct', 'wrong1', 'wrong2', 'wrong3']
+	randA(ans);
 }
 function q3() {
 	document.getElementById('picture').src = 'pics/q3.png';
