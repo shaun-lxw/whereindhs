@@ -1,30 +1,10 @@
-function randQ() {
+function randQ(questions) {
 	countdown(10);
+	var questions = [q1,q2,q3];
 	// need to make sure questions do not repeat...
-	var questions = [
-	function q1() {
-		document.getElementById('picture').src = 'pics/q1.jpg';
-		ans = ['correct', 'wrong1', 'wrong2', 'wrong3']
-		randA(ans);
-	},
-	function q2() {
-		document.getElementById('picture').src = 'pics/q2.jpg';
-		ans = ['correct', 'wrong1', 'wrong2', 'wrong3']
-		randA(ans);
-	},
-	function q3() {
-		document.getElementById('picture').src = 'pics/q3.png';
-		ans = ['correct', 'wrong1', 'wrong2', 'wrong3']
-		randA(ans);
-	}
-	];
-	var i;
-	for (i=3;i>1;i--) {
-		var question = Math.floor(Math.random()*i);
-		questions[question]();
-		questions.splice(question,1);
-		console.log(questions);
-	}
+	var question = Math.floor(Math.random()*3);
+	questions[question]();
+	questions.splice(question,1);
 	// var question = Math.floor(Math.random()*3 +1);
 	// questions[question];
 	// switch (question) {
@@ -39,6 +19,21 @@ function randQ() {
 			// break;
 	// }
 }
+function q1() {
+	document.getElementById('picture').src = 'pics/q1.jpg';
+	ans = ['correct', 'wrong1', 'wrong2', 'wrong3']
+	randA(ans);
+}
+function q2() {
+	document.getElementById('picture').src = 'pics/q2.jpg';
+	ans = ['correct', 'wrong1', 'wrong2', 'wrong3']
+	randA(ans);
+}
+function q3() {
+	document.getElementById('picture').src = 'pics/q3.png';
+	ans = ['correct', 'wrong1', 'wrong2', 'wrong3']
+	randA(ans);
+}
 function countdown(time) {
 	document.getElementById('timer').innerHTML = time;
 	time--;
@@ -46,7 +41,6 @@ function countdown(time) {
 			if (time > -1) {
 				document.getElementById('timer').innerHTML = time;
 				time -= 1;
-				console.log(time);
 			}
 			else {
 				clearInterval(count);
