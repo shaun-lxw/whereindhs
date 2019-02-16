@@ -44,7 +44,7 @@ function countdown(time) {
 				document.getElementById('score').innerHTML = "Time's up! +0pt";
 				on();
 			}
-	},100, time);
+	},1000, time);
 }
 function randA(ans) {
 	buttid=['first','second','third','fourth'];
