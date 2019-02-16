@@ -1,32 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src='questions.js' defer></script>
-<style>
-button {
-	height: 50px;
-	width: 200px;
-}
-img {
-	display: block;
-	height:300px;
-	width: 400px;
-	margin-left: auto;
-	margin-right: auto;
-}
-#timer {
-	height: 100px;
-	width: 100px;
-}
-</style>
+	<script src='questions.js' defer></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<img id='picture' src='pics/yes.png'>
-<p id='timer'>timer</p>
-<button id='first'>first</button>
-<button id='second'>second</button>
-<button id='third'>third</button>
-<button id='fourth'>fourth</button>
-<button onclick=randQ()>change question</button>
+	<div id="overlay" onclick='randQ()'>
+		<div id='score'></div>
+	</div>
+	<img id='picture' src='pics/yes.png'>
+	<p id='timer'>timer</p>
+	<button id='first' onclick=checkans(document.getElementById('first').innerHTML)>first</button>
+	<button id='second' onclick=checkans(document.getElementById('second').innerHTML)>second</button>
+	<button id='third' onclick=checkans(document.getElementById('third').innerHTML)>third</button>
+	<button id='fourth' onclick=checkans(document.getElementById('fourth').innerHTML)>fourth</button>
+	<button onclick=randQ()>change question</button>
 </body>
 </html>
