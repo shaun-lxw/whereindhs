@@ -1,13 +1,26 @@
+body {
+	background-image: url('pics/dhs.jpg')
+}
 button {
 	height: 50px;
 	width: 200px;
 }
 img {
 	display: block;
-	height:300px;
+	height: 300px;
 	width: 400px;
 	margin-left: auto;
 	margin-right: auto;
+}
+h1 {
+	text-align: center;
+	font-family: 'Bungee Shade';
+	font-size: 60px;
+}
+p {
+	text-align: center;
+	font-family: 'Contrail One';
+	font-size: 20px;
 }
 #timer {
 	height: 100px;
@@ -26,7 +39,7 @@ img {
   z-index: 2; 
   cursor: pointer; 
 }
-#score{
+#score {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -35,4 +48,14 @@ img {
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
   text-align: center;
+}
+#qn {
+	width: 5%;
+	height: 5%;
+}
+#rules {
+	display: none;
+}
+#start {
+	
 }
