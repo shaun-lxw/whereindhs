@@ -1,4 +1,4 @@
-var questions = [q1, q2, q3];
+var questions = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 const correctans = ['correct'];
 var totalscore=0;
 function randQ() {
@@ -9,7 +9,7 @@ function randQ() {
 		on();
 	}
 	else {
-		off()
+		off();
 		countdown(10);
 		var question = Math.floor(Math.random()*questions.length);
 		questions[question]();
@@ -31,20 +31,55 @@ function q3() {
 	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
 	randA(ans);
 }
+function q4() {
+	document.getElementById('picture').src = 'pics/q4.jpg';
+	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
+	randA(ans);
+}
+function q5() {
+	document.getElementById('picture').src = 'pics/q5.jpg';
+	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
+	randA(ans);
+}
+function q6() {
+	document.getElementById('picture').src = 'pics/q6.jpg';
+	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
+	randA(ans);
+}
+function q7() {
+	document.getElementById('picture').src = 'pics/q7.png';
+	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
+	randA(ans);
+}
+function q8() {
+	document.getElementById('picture').src = 'pics/q8.jpg';
+	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
+	randA(ans);
+}
+function q9() {
+	document.getElementById('picture').src = 'pics/q9.jpg';
+	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
+	randA(ans);
+}
+function q10() {
+	document.getElementById('picture').src = 'pics/q10.jpg';
+	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
+	randA(ans);
+}
 function countdown(time) {
 	document.getElementById('timer').innerHTML = time;
 	time--;
 	count = setInterval(function() {
 			if (time > -1) {
 				document.getElementById('timer').innerHTML = time;
-				time -= 1;
+				time--;
 			}
 			else {
 				clearInterval(count);
 				document.getElementById('score').innerHTML = "Time's up! +0pt";
 				on();
 			}
-	},1000, time);
+	}, 1000, time);
 }
 function randA(ans) {
 	buttid=['first','second','third','fourth'];
@@ -56,6 +91,7 @@ function randA(ans) {
 	}
 }
 function checkans(ans) {
+	clearInterval(count);
 	if (correctans.includes(ans)) {
 		document.getElementById('score').innerHTML = 'Correct Answer! +1pt';
 		if (document.getElementById('timer').innerHTML > 5) {
@@ -67,12 +103,10 @@ function checkans(ans) {
 			totalscore++;
 		}
 		on();
-		clearInterval(count);
 	}
 	else {
 		document.getElementById('score').innerHTML = 'Wrong Answer! +0pt';
 		on();
-		clearInterval(count);
 	}
 }
 function on() {
