@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<script src='questions.js' defer></script>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Where@DHS</title>
+	<link rel='stylesheet' href='styles.css'>
+	<link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Contrail One' rel='stylesheet'>
 </head>
 <body>
-	<div id="overlay" onclick='randQ()'>
-		<div id='score'></div>
+	<h1>Where@DHS</h1>
+	<p>Welcome to our quiz game, Where@DHS, which tests you on your knowledge of our school campus.</p>
+	<img onmouseover="document.getElementById('rules').style.display='block';" onmouseout="document.getElementById('rules').style.display='none';" id='qn' src='pics/qn.png'>
+	<div id='rules'>
+		<p><u>Rules:</u>	
+		<br>1. There will be 10 questions in each round. 
+		<br>2. For each question, a picture of a place in DHS will be shown.
+		<br>3. Click on the correct answer to obtain 1 point.
+		<br>4. For every wrong answer, 1 point will be deducted.
+		<br>5. If there is no answer in 10 seconds, no points will be obtained or deducted.
+		<br>6. Time bonus: Remaining time of 5s-8s gets 1 bonus point, 9s-10s gets 2 bonus points.
+		</p>
 	</div>
-	<img id='picture' src='pics/yes.png'>
-	<p id='timer'>timer</p>
-	<button id='first' onclick=checkans(document.getElementById('first').innerHTML)>first</button>
-	<button id='second' onclick=checkans(document.getElementById('second').innerHTML)>second</button>
-	<button id='third' onclick=checkans(document.getElementById('third').innerHTML)>third</button>
-	<button id='fourth' onclick=checkans(document.getElementById('fourth').innerHTML)>fourth</button>
-	<button onclick=randQ()>change question</button>
 </body>
 </html>
