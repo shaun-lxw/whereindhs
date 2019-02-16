@@ -1,3 +1,7 @@
+function signin() {
+	var provider = new firebase.auth.GoogleAuthProvider();
+	firebase.auth().signInWithRedirect(provider);
+}
 var questions = [q1, q2, q3];
 const correctans = ['correct'];
 var totalscore=0;
