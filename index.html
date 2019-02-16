@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<script src='questions.js' defer></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
@@ -15,5 +16,20 @@
 	<button id='third' onclick=checkans(document.getElementById('third').innerHTML)>third</button>
 	<button id='fourth' onclick=checkans(document.getElementById('fourth').innerHTML)>fourth</button>
 	<button onclick=randQ()>change question</button>
+	<button onclick='signin()'>Sign in with Google!</button>
+	
+	<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyCvpA372tjk1E7lOAks4STgllDxwPdQy1Y",
+		authDomain: "whereindhs.firebaseapp.com",
+		databaseURL: "https://whereindhs.firebaseio.com",
+		projectId: "whereindhs",
+		storageBucket: "whereindhs.appspot.com",
+		messagingSenderId: "642970983978"
+	  };
+	  firebase.initializeApp(config);
+	</script>
 </body>
 </html>
