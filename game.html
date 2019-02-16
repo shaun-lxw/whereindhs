@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">	
+	<script src='questions.js' defer></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div id="overlay" onclick='randQ()'>
+		<div id='score'></div>
+	</div>
+	<img id='picture' src='pics/yes.png'>
+	<p id='timer'>timer</p>
+	<button id='first' onclick=checkans(document.getElementById('first').innerHTML)>first</button>
+	<button id='second' onclick=checkans(document.getElementById('second').innerHTML)>second</button>
+	<button id='third' onclick=checkans(document.getElementById('third').innerHTML)>third</button>
+	<button id='fourth' onclick=checkans(document.getElementById('fourth').innerHTML)>fourth</button>
+	<button onclick=randQ()>change question(remove and replace with start button)</button>
+	</body>
+</html>
