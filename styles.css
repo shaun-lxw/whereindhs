@@ -1,9 +1,10 @@
-body {
-	background-image: url('pics/dhs.jpg')
-}
+@import url(https://fonts.googleapis.com/css?family=Comfortaa);
+
 button {
 	height: 50px;
 	width: 200px;
+	font-family: 'Comfortaa';
+	font-size: 18px;
 }
 img {
 	display: block;
@@ -52,10 +53,24 @@ p {
 #qn {
 	width: 5%;
 	height: 5%;
+	opacity: 0.8;
 }
 #rules {
 	display: none;
 }
 #start {
-	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: white;
+	opacity: 0.8;
+	color: black;
+	border: 2px solid #555555;
+	transition-duration: 0.4s;
+}
+#start:hover {
+	background-color: #555555;
+	color: white
 }
