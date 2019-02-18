@@ -120,4 +120,4 @@ function q10() {
 	document.getElementById('picture').src = 'pics/q10.jpg';
 	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
 	randA(ans);
-}}
+}
