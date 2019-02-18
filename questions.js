@@ -1,11 +1,31 @@
-var questions = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+// Number of questions in quiz
 const MAX = 10;
 var countqn = 0;
+// Array of correct answers
 const correctans = ['correct'];
 var totalscore=0;
+// initialize questions
+function Question(pic, ans) {
+	this.pic = pic;
+	this.ans = ans;
+}
+var q1 = new Question('pics/q1.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
+var q2 = new Question('pics/q2.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
+var q3 = new Question('pics/q3.png', ['correct', 'wrong1', 'wrong2', 'wrong3']);
+var q4 = new Question('pics/q4.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
+var q5 = new Question('pics/q5.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
+var q6 = new Question('pics/q6.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
+var q7 = new Question('pics/q7.png', ['correct', 'wrong1', 'wrong2', 'wrong3']);
+var q8 = new Question('pics/q8.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
+var q9 = new Question('pics/q9.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
+var q10 = new Question('pics/q10.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
+var questions = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+
 window.onload = start();
+
 function start() {
 	randQ();
+	// Animate start
 	on();
 	var score = document.getElementById('score');
 	score.innerHTML = 'START!';
@@ -19,8 +39,12 @@ function start() {
 				score.style.fontSize = '350%';
 				countdown(10);
 				document.getElementById('overlay').onclick = function () {
-					randQ(); 
-					countdown(10);
+					if (countqn == MAX) {
+						randQ(); 
+					} else {
+						randQ();
+						countdown(10);
+					}
 				}
 			},1000);
 		} else {
@@ -37,9 +61,10 @@ function randQ() {
 	else {
 		countqn++;
 		off();
-		var question = Math.floor(Math.random()*questions.length);
-		questions[question]();
-		questions.splice(question,1);
+		var pickqn = Math.floor(Math.random()*questions.length);
+		document.getElementById('picture').src = questions[pickqn].pic;
+		randA(questions[pickqn].ans);
+		questions.splice(pickqn,1);
 	}
 }
 function randA(ans) {
@@ -96,55 +121,4 @@ function on() {
 }
 function off() {
   document.getElementById("overlay").style.display = "none";
-}
-//questions
-function q1() {
-	document.getElementById('picture').src = 'pics/q1.jpg';
-	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
-	randA(ans);
-}
-function q2() {
-	document.getElementById('picture').src = 'pics/q2.jpg';
-	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
-	randA(ans);
-}
-function q3() {
-	document.getElementById('picture').src = 'pics/q3.png';
-	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
-	randA(ans);
-}
-function q4() {
-	document.getElementById('picture').src = 'pics/q4.jpg';
-	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
-	randA(ans);
-}
-function q5() {
-	document.getElementById('picture').src = 'pics/q5.jpg';
-	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
-	randA(ans);
-}
-function q6() {
-	document.getElementById('picture').src = 'pics/q6.jpg';
-	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
-	randA(ans);
-}
-function q7() {
-	document.getElementById('picture').src = 'pics/q7.png';
-	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
-	randA(ans);
-}
-function q8() {
-	document.getElementById('picture').src = 'pics/q8.jpg';
-	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
-	randA(ans);
-}
-function q9() {
-	document.getElementById('picture').src = 'pics/q9.jpg';
-	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
-	randA(ans);
-}
-function q10() {
-	document.getElementById('picture').src = 'pics/q10.jpg';
-	ans = ['correct', 'wrong1', 'wrong2', 'wrong3'];
-	randA(ans);
 }
