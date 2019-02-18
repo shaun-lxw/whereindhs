@@ -13,13 +13,7 @@ button:hover {
 	background-color: #555555;
 	color: white
 }
-#picture, #qn {
-	display: block;
-	height: 300px;
-	width: 400px;
-	margin-left: auto;
-	margin-right: auto;
-}
+
 h1 {
 	text-align: center;
 	font-family: 'Bungee Shade';
@@ -29,6 +23,13 @@ p {
 	text-align: center;
 	font-family: 'Contrail One';
 	font-size: 20px;
+}
+#picture {
+	display: block;
+	height: 300px;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
 }
 #timer {
 	margin-top: 30px;
@@ -66,14 +67,17 @@ p {
   text-align: center;
 }
 #qn {
+	display: block;
 	width: 5%;
 	height: 5%;
 	opacity: 0.8;
+	margin-left: auto;
+	margin-right: auto;
 }
 #rules {
 	display: none;
 }
-#start {
+#start, #signinbutton {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
