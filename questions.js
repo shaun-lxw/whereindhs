@@ -1,4 +1,6 @@
 var questions = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+const MAX = 10;
+var countqn = 0;
 const correctans = ['correct'];
 var totalscore=0;
 window.onload = start();
@@ -7,14 +9,14 @@ function start() {
 	on();
 	var score = document.getElementById('score');
 	score.innerHTML = 'START!';
-	var size = 50;
+	var size = 100;
 	var go = setInterval(grow, 5);
 	function grow() {
-		if (size == 200) {
+		if (size == 1000) {
 			clearInterval(go);
 			setTimeout(function() {
 				off();
-				score.style.fontSize = '50px';
+				score.style.fontSize = '350%';
 				countdown(10);
 				document.getElementById('overlay').onclick = function () {
 					randQ(); 
@@ -22,17 +24,18 @@ function start() {
 				}
 			},1000);
 		} else {
-			size++;
-			score.style.fontSize = size+'px';
+			size += 5;
+			score.style.fontSize = size+'%';
 		}
 	}
 }
 function randQ() {
-	if (questions.length == 0) {
+	if (countqn == MAX) {
 		document.getElementById('score').innerHTML = 'End of game. Total score: ' + totalscore;
 		on();
 	}
 	else {
+		countqn++;
 		off();
 		var question = Math.floor(Math.random()*questions.length);
 		questions[question]();
