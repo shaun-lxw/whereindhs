@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">	
+	<title>Where@DHS</title>
+	<meta charset="UTF-8">
 	<script src='questions.js' defer></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-	<div id="overlay" onclick='randQ()'>
+	<div id="bg"></div>
+	<div id="overlay" onclick=''>
 		<div id='score'></div>
 	</div>
-	<img id='picture' src='pics/yes.png'>
-	<p id='timer'>timer</p>
-	<button id='first' onclick=checkans(document.getElementById('first').innerHTML)>first</button>
-	<button id='second' onclick=checkans(document.getElementById('second').innerHTML)>second</button>
-	<button id='third' onclick=checkans(document.getElementById('third').innerHTML)>third</button>
-	<button id='fourth' onclick=checkans(document.getElementById('fourth').innerHTML)>fourth</button>
-	<button onclick=randQ()>change question(remove and replace with start button)</button>
-	</body>
+	<img id='picture' src=''>
+	<p id='timer'>10</p>
+	<div id='answers'>
+		<button id='first' onclick=checkans(document.getElementById('first').innerHTML)>first</button>
+		<button id='second' onclick=checkans(document.getElementById('second').innerHTML)>second</button>
+		<button id='third' onclick=checkans(document.getElementById('third').innerHTML)>third</button>
+		<button id='fourth' onclick=checkans(document.getElementById('fourth').innerHTML)>fourth</button>
+	</div>
+</body>
 </html>
