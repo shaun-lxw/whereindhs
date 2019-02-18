@@ -1,12 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Comfortaa);
-
 button {
 	height: 50px;
 	width: 200px;
 	font-family: 'Comfortaa';
 	font-size: 18px;
+	background-color: white;
+	color: black;
+	border: 2px solid #555555;
+	transition-duration: 0.4s;
 }
-img {
+button:hover {
+	background-color: #555555;
+	color: white
+}
+#picture, #qn {
 	display: block;
 	height: 300px;
 	width: 400px;
@@ -24,8 +31,16 @@ p {
 	font-size: 20px;
 }
 #timer {
-	height: 100px;
-	width: 100px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	text-align: center;
+	width: 5%;
+	font-family: Comfortaa;
+	border: 2px solid black;
+	border-radius: 5px;
 }
 #overlay {
   position: fixed;
@@ -66,11 +81,11 @@ p {
 	margin-bottom: 20px;
 	background-color: white;
 	opacity: 0.8;
-	color: black;
-	border: 2px solid #555555;
-	transition-duration: 0.4s;
 }
 #start:hover {
 	background-color: #555555;
 	color: white
+}
+#answers {
+	text-align: center;
 }
