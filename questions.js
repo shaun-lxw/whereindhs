@@ -1,7 +1,32 @@
 var questions = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 const correctans = ['correct'];
 var totalscore=0;
-window.onload = randQ();
+window.onload = start();
+function start() {
+	randQ();
+	on();
+	var score = document.getElementById('score');
+	score.innerHTML = 'START!';
+	var size = 50;
+	var go = setInterval(grow, 5);
+	function grow() {
+		if (size == 200) {
+			clearInterval(go);
+			setTimeout(function() {
+				off();
+				score.style.fontSize = '50px';
+				countdown(10);
+				document.getElementById('overlay').onclick = function () {
+					randQ(); 
+					countdown(10);
+				}
+			},1000);
+		} else {
+			size++;
+			score.style.fontSize = size+'px';
+		}
+	}
+}
 function randQ() {
 	if (questions.length == 0) {
 		document.getElementById('score').innerHTML = 'End of game. Total score: ' + totalscore;
@@ -9,7 +34,6 @@ function randQ() {
 	}
 	else {
 		off();
-		countdown(10);
 		var question = Math.floor(Math.random()*questions.length);
 		questions[question]();
 		questions.splice(question,1);
@@ -44,7 +68,7 @@ function checkans(ans) {
 	}
 	else {
 		score.innerHTML = 'Wrong Answer! -1pt';
-		totalscore--;
+		totalscore--
 		on();
 	}
 }
