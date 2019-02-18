@@ -44,7 +44,7 @@ function checkans(ans) {
 	}
 	else {
 		score.innerHTML = 'Wrong Answer! -1pt';
-		totalscore--
+		totalscore--;
 		on();
 	}
 }
