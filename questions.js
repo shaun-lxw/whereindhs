@@ -21,8 +21,13 @@ var q9 = new Question('pics/q9.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
 var q10 = new Question('pics/q10.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
 var questions = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 
-window.onload = start();
-
+// window.onload = start();
+window.onload = function () {
+	on();
+}
+function hitit() {
+	document.getElementById('score').style.fontSize = '1000%';
+}
 function start() {
 	randQ();
 	// Animate start
