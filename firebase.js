@@ -46,6 +46,8 @@ function signin() {
 
 AUTH.getRedirectResult().then(function(result) {
 	if (result.credential) {
+		var user = result.user;
+		var displayName = user.displayName;
 		document.getElementById('signinbutton').innerHTML = 'Loading...';
 		signinbutton.style.display = 'none';
 		document.getElementById('greeting').innerHTML = 'Hello, <br />' + displayName;
