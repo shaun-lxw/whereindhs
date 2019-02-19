@@ -6,10 +6,8 @@ body {
 	height: 100%;
 	width: 100%;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-right: -50%;
-	transform: translate(-50%, -50%);
+	overflow: hidden;
+	background-repeat: no-repeat;
 }
 button {
 	height: 50px;
@@ -29,7 +27,7 @@ button:hover {
 h1 {
 	text-align: center;
 	font-family: 'Bungee Shade';
-	font-size: 300%;
+	font-size: 250%;
 }
 .indexp {
 	text-align: center;
@@ -83,7 +81,7 @@ h1 {
   text-align: center;
 }
 #qn {
-	display: block;
+	display: none;
 	width: 5%;
 	height: 5%;
 	opacity: 0.8;
@@ -113,7 +111,7 @@ h1 {
 }
 #start:hover {
 	background-color: #555555;
-	color: white
+	color: white;
 }
 #answers {
 	text-align: center;
