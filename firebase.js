@@ -54,3 +54,4 @@ AUTH.getRedirectResult().then(function(result) {
 		document.getElementById('greeting').style.display = 'block';
 		document.getElementById('start').style.display = 'block';
 }})
+window.onload = initapp();
