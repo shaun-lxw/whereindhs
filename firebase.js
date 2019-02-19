@@ -38,6 +38,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 		document.getElementById('greeting').innerHTML = 'Hello, <br />' + displayName;
 		document.getElementById('greeting').style.display = 'block';
 		document.getElementById('start').style.display = 'block';
+		document.getElementById('qn').style.display = 'block';
 	}
   } else {
     // User is signed out.
