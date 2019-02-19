@@ -1,9 +1,21 @@
 @import url(https://fonts.googleapis.com/css?family=Comfortaa);
+@import url('https://fonts.googleapis.com/css?family=Contrail One'); 
+@import url('https://fonts.googleapis.com/css?family=Bungee Shade');
+
+body {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
 button {
 	height: 50px;
 	width: 200px;
 	font-family: 'Comfortaa';
-	font-size: 18px;
+	font-size: 100%;
 	background-color: white;
 	color: black;
 	border: 2px solid #555555;
@@ -17,12 +29,12 @@ button:hover {
 h1 {
 	text-align: center;
 	font-family: 'Bungee Shade';
-	font-size: 60px;
+	font-size: 300%;
 }
 p {
 	text-align: center;
 	font-family: 'Contrail One';
-	font-size: 20px;
+	font-size: 120%;
 }
 #picture {
 	display: block;
@@ -32,11 +44,11 @@ p {
 	margin-right: auto;
 }
 #timer {
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 5%;
+	margin-bottom: 5%;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 10px;
+	padding: 1%;
 	text-align: center;
 	width: 5%;
 	font-family: Comfortaa;
@@ -54,7 +66,8 @@ p {
   bottom: 0;
   background-color: rgba(0,0,0,0.8); 
   z-index: 2; 
-  cursor: pointer; 
+  cursor: pointer;
+  font-family: 'Contrail One';
 }
 #score {
   position: absolute;
