@@ -32,11 +32,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 	var uid = user.uid;
 	var providerData = user.providerData;
 	// ...
-	var signinbutton = document.getElementById('signinbutton');
-	signinbutton.style.display = 'none';
-	document.getElementById('greeting').innerHTML = 'Hello, <br />' + displayName;
-	document.getElementById('greeting').style.display = 'block';
-	document.getElementById('start').style.display = 'block';
+	if (document.getElementById('signinbutton')) {
+		var signinbutton = document.getElementById('signinbutton');
+		signinbutton.style.display = 'none';
+		document.getElementById('greeting').innerHTML = 'Hello, <br />' + displayName;
+		document.getElementById('greeting').style.display = 'block';
+		document.getElementById('start').style.display = 'block';
+	}
   } else {
     // User is signed out.
     // ...
