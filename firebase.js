@@ -37,8 +37,4 @@ if (user) {
 	signinbutton.innerHTML = 'Signed in as ' + displayName;
 	signinbutton.onclick = '';
 
-  } else {
-    // User is signed out.
-    // ...
   }
-});
