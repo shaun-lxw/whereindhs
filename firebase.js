@@ -51,5 +51,4 @@ AUTH.getRedirectResult().then(function(result) {
 		document.getElementById('greeting').innerHTML = 'Hello, <br />' + displayName;
 		document.getElementById('greeting').style.display = 'block';
 		document.getElementById('start').style.display = 'block';
-}
-}
+}})
