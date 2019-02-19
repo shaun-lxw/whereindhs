@@ -36,4 +36,4 @@ if (user) {
 	var signinbutton = document.getElementById('signinbutton');
 	signinbutton.innerHTML = 'Signed in as ' + displayName;
 	signinbutton.onclick = '';
-  }}
+  }})
