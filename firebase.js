@@ -21,7 +21,7 @@ function signin() {
 		document.getElementById('signinbutton').innerHTML = 'Error... Sign In Again';
 	})
 }
-/* firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 	// User is signed in.
 	var displayName = user.displayName;
@@ -42,19 +42,3 @@ function signin() {
     // ...
   }
 });
- */
-
-function initapp() {
-	firebase.auth().getRedirectResult().then(function(result) {
-		if (result.credential) {
-			var user = result.user;
-			var displayName = user.displayName;
-			document.getElementById('signinbutton').innerHTML = 'Loading...';
-			signinbutton.style.display = 'none';
-			document.getElementById('greeting').innerHTML = 'Hello, <br />' + displayName;
-			document.getElementById('greeting').style.display = 'block';
-			document.getElementById('start').style.display = 'block';
-	}
-	})
-}
-window.onload = initapp();
