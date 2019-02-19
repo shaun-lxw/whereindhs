@@ -2,24 +2,26 @@
 const MAX = 10;
 var countqn = 0;
 // Array of correct answers
-const correctans = ['correct'];
+var correctans = [];
 var totalscore=0;
 // initialize questions
+var questions = [];
+var q1 = new Question('pics/canteen.jpg', ['canteen', 'wrong1', 'wrong2', 'wrong3']);
+var q2 = new Question('pics/paradesq.jpg', ['parade square', 'wrong1', 'wrong2', 'wrong3']);
+var q3 = new Question('pics/platform.jpg', ['platform', 'wrong1', 'wrong2', 'wrong3']);
+var q4 = new Question('pics/zxy.jpg', ['zxy', 'wrong1', 'wrong2', 'wrong3']);
+var q5 = new Question('pics/bell.jpg', ['bell', 'wrong1', 'wrong2', 'wrong3']);
+var q6 = new Question('pics/gslswing.jpg', ['gslswing', 'wrong1', 'wrong2', 'wrong3']);
+var q7 = new Question('pics/bamboo.jpg', ['bamboo', 'wrong1', 'wrong2', 'wrong3']);
+var q8 = new Question('pics/canteenswing1.jpg', ['canteen swing 1', 'wrong1', 'wrong2', 'wrong3']);
+var q9 = new Question('pics/kongziback.jpg', ['kongziback', 'wrong1', 'wrong2', 'wrong3']);
+var q10 = new Question('pics/track.jpg', ['track', 'wrong1', 'wrong2', 'wrong3']);
 function Question(pic, ans) {
 	this.pic = pic;
 	this.ans = ans;
+	correctans.push(this.ans[0]);
+	questions.push(this);
 }
-var q1 = new Question('pics/q1.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
-var q2 = new Question('pics/q2.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
-var q3 = new Question('pics/q3.png', ['correct', 'wrong1', 'wrong2', 'wrong3']);
-var q4 = new Question('pics/q4.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
-var q5 = new Question('pics/q5.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
-var q6 = new Question('pics/q6.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
-var q7 = new Question('pics/q7.png', ['correct', 'wrong1', 'wrong2', 'wrong3']);
-var q8 = new Question('pics/q8.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
-var q9 = new Question('pics/q9.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
-var q10 = new Question('pics/q10.jpg', ['correct', 'wrong1', 'wrong2', 'wrong3']);
-var questions = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 
 window.onload = start();
 
