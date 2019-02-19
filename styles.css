@@ -31,10 +31,13 @@ h1 {
 	font-family: 'Bungee Shade';
 	font-size: 300%;
 }
-p {
+.indexp {
 	text-align: center;
 	font-family: 'Contrail One';
 	font-size: 120%;
+}
+#greeting {
+	display: none;
 }
 #picture {
 	display: block;
