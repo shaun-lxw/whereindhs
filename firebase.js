@@ -37,6 +37,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 	signinbutton.style.display = 'none';
 	document.getElementById('greeting').innerHTML = 'Hello, <br />' + displayName;
 	document.getElementById('greeting').style.display = 'block';
+	document.getElementById('start').style.display = 'block';
   } else {
     // User is signed out.
     // ...
