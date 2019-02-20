@@ -27,17 +27,17 @@ window.onload = start();
 function start() {
 	randQ();
 	// Animate start
-	on();
 	var score = document.getElementById('score');
 	score.innerHTML = 'START!';
-	var size = 100;
+	var size = 5;
+	on();
 	var go = setInterval(grow, 5);
 	function grow() {
-		if (size == 1000) {
+		if (size > 19) {
 			clearInterval(go);
 			setTimeout(function() {
 				off();
-				score.style.fontSize = '350%';
+				score.style.fontSize = '5vw';
 				document.getElementById('prompt').style.display = 'block';
 				countdown(10);
 				document.getElementById('overlay').onclick = function () {
@@ -50,8 +50,8 @@ function start() {
 				}
 			},1000);
 		} else {
-			size += 5;
-			score.style.fontSize = size+'%';
+			size += 0.1;
+			score.style.fontSize = size+'vw';
 		}
 	}
 }
