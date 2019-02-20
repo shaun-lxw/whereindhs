@@ -42,7 +42,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   } else {
     // User is signed out.
     // ...
-	document.getElementById('signinbutton').disabled = False;
+	document.getElementById('signinbutton').disabled = false;
 	document.getElementById('signinbutton').innerHTML = 'Sign in with Gmail!';
   }
 });
