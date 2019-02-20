@@ -38,6 +38,7 @@ function start() {
 			setTimeout(function() {
 				off();
 				score.style.fontSize = '350%';
+				document.getElementById('prompt').style.display = 'block';
 				countdown(10);
 				document.getElementById('overlay').onclick = function () {
 					if (countqn == MAX) {
