@@ -119,7 +119,7 @@ h1 {
 	color: white;
 }
 #start {
-	display: none;
+	display: block;
 }
 #answers {
 	display: flex;
