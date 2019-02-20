@@ -108,7 +108,7 @@ h1 {
 	color: white;
 }
 #start {
-	display: none;
+	display: block;
 }
 #answers {
 	text-align: center;
