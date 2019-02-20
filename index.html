@@ -17,18 +17,17 @@
 	<h1>Where@DHS</h1>
 	<p class='indexp'>Welcome to our quiz game, Where@DHS, which tests you on your knowledge of our school campus.</p>
 	<p class='indexp' id='greeting'></p>
-	<button onclick='signin();' id='signinbutton' disabled>Loading...</button>
-	<button onclick="window.location.href = 'game.html';" id='start'>START</button>
+	<button class='indexbutton' onclick='signin();' id='signinbutton' disabled>Loading...</button>
+	<button class='indexbutton' onclick="window.location.href = 'game.html';" id='start'>START</button>
 	<img onmouseover="document.getElementById('rules').style.display='block';" onmouseout="document.getElementById('rules').style.display='none';" id='qn' src='pics/qn.png'>
-	<div id='rules'>
-		<p class='indexp'><u>Rules:</u>	
+	<div class='indexp' id='rules'>
+		<u>Rules:</u>
 		<br>1. There will be 10 questions in each round. 
 		<br>2. For each question, a picture of a place in DHS will be shown.
 		<br>3. Click on the correct answer to obtain 1 point.
 		<br>4. For every wrong answer, 1 point will be deducted.
 		<br>5. If there is no answer in 10 seconds, no points will be obtained or deducted.
 		<br>6. Time bonus: Remaining time of 5s-8s gets 1 bonus point, 9s-10s gets 2 bonus points.
-		</p>
 	</div>
 </body>
 </html>
