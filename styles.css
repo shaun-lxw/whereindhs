@@ -1,13 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Comfortaa);
 @import url('https://fonts.googleapis.com/css?family=Contrail One'); 
 @import url('https://fonts.googleapis.com/css?family=Bungee Shade');
-
 body {
 	height: 100%;
 	width: 100%;
 	position: absolute;
 	overflow: hidden;
 	background-repeat: no-repeat;
+	background-size: cover;
 }
 button {
 	height: 50px;
