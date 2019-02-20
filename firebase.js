@@ -33,7 +33,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 	var providerData = user.providerData;
 	// ...
 	if (document.getElementById('signinbutton')) {
-		var signinbutton = document.getElementById('signinbutton');
 		signinbutton.style.display = 'none';
 		document.getElementById('greeting').innerHTML = 'Hello, <br />' + displayName;
 		document.getElementById('greeting').style.display = 'block';
@@ -43,6 +42,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   } else {
     // User is signed out.
     // ...
+	document.getElementById('signinbutton').disabled = False;
 	document.getElementById('signinbutton').innerHTML = 'Sign in with Gmail!';
   }
 });
