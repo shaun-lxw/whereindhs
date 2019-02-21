@@ -23,6 +23,9 @@ function signin() {
 }
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+	  
+	USER = user;
+	  
 	// User is signed in.
 	var displayName = user.displayName;
 	var email = user.email;
@@ -46,7 +49,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 	document.getElementById('signinbutton').innerHTML = 'Sign in with Gmail!';
   }
 });
-var user = AUTH.currentUser;
+var USER;
 var db = firebase.firestore();
 function storeresults() {
 	
