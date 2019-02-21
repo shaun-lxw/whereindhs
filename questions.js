@@ -1,3 +1,5 @@
+// firestore
+// ===================================================================
 var USER;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -24,9 +26,12 @@ function storeresults() {
 		console.error("Error writing document: ", error);
 	});
 	}
+// ===============================================================	
+	
 // Number of questions in quiz
 const MAX = 10;
 var countqn = 0;
+var currqn;
 //button id
 var buttid = ['first','second','third','fourth'];
 // Array of correct answers
@@ -68,6 +73,9 @@ function Question(pic, ans, anspic, desc) {
 window.onload = start();
 
 function start() {
+	var pickqn = Math.floor(Math.random()*questions.length);
+	currqn = questions[pickqn];
+	document.getElementById('picture').src = currqn.pic;
 	randQ();
 	// Animate start
 	var animate = document.getElementById('animate');
@@ -123,14 +131,11 @@ function randQ() {
 	else {
 		countqn++;
 		off();
-		var pickqn = Math.floor(Math.random()*questions.length);
-		var currqn = questions[pickqn];
-		document.getElementById('picture').src = currqn.pic;
 		randA(currqn.ans);
 		document.getElementById('desc').innerHTML = currqn.desc;
 		document.getElementById('anspic').src = currqn.anspic;
 		// remove from array so there is no repetition of qn
-		questions.splice(pickqn,1);
+		questions.splice(questions.indexOf(currqn), 1);
 	}
 }
 function randA(ans) {
@@ -151,6 +156,12 @@ function endqn() {
 		if (correctans.includes(document.getElementById(buttid[i]).innerHTML)){
 			document.getElementById(buttid[i]).style.backgroundColor = '#00e600';
 		}
+	}
+	// pick next qn to change qn pic to prevent delay
+	if (countqn != MAX) {
+		var pickqn = Math.floor(Math.random()*questions.length);
+		currqn = questions[pickqn];
+		document.getElementById('picture').src = currqn.pic;
 	}
 }
 
