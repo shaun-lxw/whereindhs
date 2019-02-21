@@ -106,7 +106,7 @@ function endqn() {
 	//highlight right ans in green
 	for (var i=0; i < 4; i++) {
 		if (correctans.includes(document.getElementById(buttid[i]).innerHTML)){
-			document.getElementById(buttid[i]).style.backgroundColor = 'green';
+			document.getElementById(buttid[i]).style.backgroundColor = '#00e600';
 		}
 	}
 }
