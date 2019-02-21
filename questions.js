@@ -1,10 +1,5 @@
 // firestore
 // ===================================================================
-firebase.initializeApp({
-  apiKey: "AIzaSyCvpA372tjk1E7lOAks4STgllDxwPdQy1Y",
-  authDomain: "whereindhs.firebaseapp.com",
-  projectId: "whereindhs"
-});
 var USER;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
