@@ -1,10 +1,14 @@
 // firestore
 // ===================================================================
+firebase.initializeApp({
+  apiKey: "AIzaSyCvpA372tjk1E7lOAks4STgllDxwPdQy1Y",
+  authDomain: "whereindhs.firebaseapp.com",
+  projectId: "whereindhs"
+});
 var USER;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 	USER = user;
-	console.log('question js has auth obj.' + user.displayName + user.uid);
   }
 });
 var db = firebase.firestore();
@@ -114,7 +118,7 @@ function endgame() {
 	document.getElementById('desc').innerHTML = 'End of game. Total score: ' + totalscore;
 	document.getElementById('score').innerHTML = '';
 	on();
-	storeresults();
+	storeresults;
 }
 function randQ() {
 	// startqn
