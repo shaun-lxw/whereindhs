@@ -16,13 +16,14 @@ function storeresults() {
 	docRef.set({
 		time: d.getTime(),
 		score: totalscore
-	}).then(function() {
+	})
+	.then(function() {
 		console.log("Document successfully written!");
-});
-.catch(function(error) {
-    console.error("Error writing document: ", error);
-});
-}
+	})
+	.catch(function(error) {
+		console.error("Error writing document: ", error);
+	});
+	}
 // Number of questions in quiz
 const MAX = 10;
 var countqn = 0;
