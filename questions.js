@@ -1,3 +1,5 @@
+var user = firebase.auth().currentUser;
+console.log(user.displayName);
 // Number of questions in quiz
 const MAX = 10;
 var countqn = 0;
