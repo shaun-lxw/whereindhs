@@ -1,15 +1,3 @@
-// Initialize Firebase
-var config = {
-	apiKey: "AIzaSyCvpA372tjk1E7lOAks4STgllDxwPdQy1Y",
-	authDomain: "whereindhs.firebaseapp.com",
-	databaseURL: "https://whereindhs.firebaseio.com",
-	projectId: "whereindhs",
-	storageBucket: "whereindhs.appspot.com",
-	messagingSenderId: "642970983978"
-};
-firebase.initializeApp(config);
-var user = firebase.auth().currentUser;
-console.log(user.displayName);
 // Number of questions in quiz
 const MAX = 10;
 var countqn = 0;
