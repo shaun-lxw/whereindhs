@@ -3,7 +3,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 	USER = user;
   }
-})
+});
 var db = firebase.firestore();
 function storeresults() {
 	var userRef = db.colletion('users').doc(USER.uid);
@@ -16,7 +16,12 @@ function storeresults() {
 	docRef.set({
 		time: d.getTime(),
 		score: totalscore
-	})
+	}).then(function() {
+		console.log("Document successfully written!");
+});
+.catch(function(error) {
+    console.error("Error writing document: ", error);
+});
 }
 // Number of questions in quiz
 const MAX = 10;
