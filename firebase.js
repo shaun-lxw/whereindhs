@@ -1,7 +1,7 @@
 // Initialize Firebase
 var config = {
 	apiKey: "AIzaSyCvpA372tjk1E7lOAks4STgllDxwPdQy1Y",
-	authDomain: "shaunlxw.github.io",
+	authDomain: "whereindhs.firebaseapp.com",
 	databaseURL: "https://whereindhs.firebaseio.com",
 	projectId: "whereindhs",
 	storageBucket: "whereindhs.appspot.com",
