@@ -85,6 +85,12 @@ h1 {
 	-ms-transform: translate(-50%,-50%);
 	text-align: center;
 }
+#anspic {
+	display: none;
+	height: 50vh;
+	margin-left: auto;
+	margin-right: auto;
+}
 #animate {
 	position: absolute;
 	top: 50vh;
