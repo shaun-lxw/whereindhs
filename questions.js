@@ -1,24 +1,44 @@
+var USER;
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+	USER = user;
+  }
+})
+var db = firebase.firestore();
+function storeresults() {
+	var userRef = db.colletion('users').doc(USER.uid);
+	var d = new Date();
+	var dd = d.getDate();
+	var mm = d.getMonth()+1;
+	var yyyy = d.getFullYear();
+	var today = dd + '-' + mm + '-' + yyyy;
+	var docRef = userRef.collection('games').doc(today);
+	docRef.set({
+		time: d.getTime(),
+		score: totalscore
+	})
+}
 // Number of questions in quiz
 const MAX = 10;
 var countqn = 0;
 //button id
-var buttid=['first','second','third','fourth'];
+var buttid = ['first','second','third','fourth'];
 // Array of correct answers
 var correctans = [];
 var totalscore=0;
 // initialize questions
 var questions = [];
-var q1 = new Question('pics/canteen.JPG', ['canteen', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q2 = new Question('pics/paradesq.JPG', ['parade square', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q3 = new Question('pics/platform.JPG', ['platform', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q4 = new Question('pics/zxy.JPG', ['zxy', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q5 = new Question('pics/bell.JPG', ['bell', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q6 = new Question('pics/gslswing.JPG', ['gslswing', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q7 = new Question('pics/bamboo.JPG', ['bamboo', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q8 = new Question('pics/canteenswing.JPG', ['canteen swing', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q9 = new Question('pics/zxyshelter.JPG', ['zxyshelter', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q10 = new Question('pics/track.JPG', ['track', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q11 = new Question('pics/bball.JPG', ['bball court', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
+var q1 = new Question('pics/canteen.jpg', ['canteen', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
+var q2 = new Question('pics/paradesq.jpg', ['parade square', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
+var q3 = new Question('pics/platform.jpg', ['platform', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
+var q4 = new Question('pics/zxy.jpg', ['zxy', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
+var q5 = new Question('pics/bell.jpg', ['bell', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
+var q6 = new Question('pics/gslswing.jpg', ['gslswing', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
+var q7 = new Question('pics/bamboo.jpg', ['bamboo', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
+var q8 = new Question('pics/canteenswing.jpg', ['canteen swing', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
+var q9 = new Question('pics/zxyshelter.jpg', ['zxyshelter', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
+var q10 = new Question('pics/track.jpg', ['track', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
+var q11 = new Question('pics/bball.jpg', ['bball court', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
 function Question(pic, ans, desc) {
 	this.pic = pic;
 	this.ans = ans;
@@ -61,6 +81,12 @@ function start() {
 		}
 	}
 }
+function endgame() {
+	document.getElementById('answers').style.zIndex = 0;
+	document.getElementById('desc').innerHTML = 'End of game. Total score: ' + totalscore;
+	document.getElementById('score').innerHTML = '';
+	on();
+}
 function randQ() {
 	// startqn
 	for (var i=0; i < 4; i++) {
@@ -72,10 +98,7 @@ function randQ() {
 	}
 	// check end game
 	if (countqn == MAX) {
-		document.getElementById('answers').style.zIndex = 0;
-		document.getElementById('desc').innerHTML = 'End of game. Total score: ' + totalscore;
-		document.getElementById('score').innerHTML = '';
-		on();
+		endgame();
 	}
 	// get qn
 	else {
