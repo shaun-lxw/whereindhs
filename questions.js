@@ -34,20 +34,32 @@ var correctans = [];
 var totalscore=0;
 // initialize questions
 var questions = [];
-var q1 = new Question('pics/canteen.jpg', ['canteen', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q2 = new Question('pics/paradesq.jpg', ['parade square', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q3 = new Question('pics/platform.jpg', ['platform', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q4 = new Question('pics/zxy.jpg', ['zxy', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q5 = new Question('pics/bell.jpg', ['bell', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q6 = new Question('pics/gslswing.jpg', ['gslswing', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q7 = new Question('pics/bamboo.jpg', ['bamboo', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q8 = new Question('pics/canteenswing.jpg', ['canteen swing', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q9 = new Question('pics/zxyshelter.jpg', ['zxyshelter', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q10 = new Question('pics/track.jpg', ['track', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-var q11 = new Question('pics/bball.jpg', ['bball court', 'wrong1', 'wrong2', 'wrong3'], '(desc)');
-function Question(pic, ans, desc) {
+var q1 = new Question('pics/canteen.jpg', ['canteen', 'wrong1', 'wrong2', 'wrong3'],
+'pics/canteenAns.jpg', '(desc)');
+var q2 = new Question('pics/paradesq.jpg', ['parade square', 'wrong1', 'wrong2', 'wrong3'],
+'pics/paradesqAns.jpg', '(desc)');
+var q3 = new Question('pics/platform.jpg', ['platform', 'wrong1', 'wrong2', 'wrong3'],
+'pics/platformAns.jpg', '(desc)');
+var q4 = new Question('pics/zxy.jpg', ['zxy', 'wrong1', 'wrong2', 'wrong3'],
+'pics/zxyAns.jpg', '(desc)');
+var q5 = new Question('pics/bell.jpg', ['bell', 'wrong1', 'wrong2', 'wrong3'],
+'pics/bellAns.jpg', '(desc)');
+var q6 = new Question('pics/gslswing.jpg', ['gslswing', 'wrong1', 'wrong2', 'wrong3'],
+'pics/gslswingAns.jpg', '(desc)');
+var q7 = new Question('pics/bamboo.jpg', ['bamboo', 'wrong1', 'wrong2', 'wrong3'],
+'pics/bambooAns.jpg', '(desc)');
+var q8 = new Question('pics/canteenswing.jpg', ['canteen swing', 'wrong1', 'wrong2', 'wrong3'],
+'pics/canteenswingAns.jpg', '(desc)');
+var q9 = new Question('pics/zxyshelter.jpg', ['zxyshelter', 'wrong1', 'wrong2', 'wrong3'],
+'pics/zxyshelterAns.jpg', '(desc)');
+var q10 = new Question('pics/track.jpg', ['track', 'wrong1', 'wrong2', 'wrong3'],
+'pics/trackAns.jpg', '(desc)');
+var q11 = new Question('pics/bball.jpg', ['bball court', 'wrong1', 'wrong2', 'wrong3'],
+'pics/bballAns.jpg', '(desc)');
+function Question(pic, ans, anspic, desc) {
 	this.pic = pic;
 	this.ans = ans;
+	this.anspic = anspic;
 	this.desc = desc;
 	correctans.push(this.ans[0]);
 	questions.push(this);
@@ -71,6 +83,7 @@ function start() {
 				document.getElementById('answers').style.zIndex = 3;
 				document.getElementById('prompt').style.display = 'block';
 				document.getElementById('desc').style.display = 'block';
+				document.getElementById('anspic').style.display = 'block';
 				countdown(10);
 				document.getElementById('overlay').onclick = function () {
 					if (countqn == MAX) {
@@ -92,7 +105,6 @@ function endgame() {
 	document.getElementById('desc').innerHTML = 'End of game. Total score: ' + totalscore;
 	document.getElementById('score').innerHTML = '';
 	on();
-	storeresults();
 }
 function randQ() {
 	// startqn
@@ -116,6 +128,7 @@ function randQ() {
 		document.getElementById('picture').src = currqn.pic;
 		randA(currqn.ans);
 		document.getElementById('desc').innerHTML = currqn.desc;
+		document.getElementById('anspic').src = currqn.anspic;
 		// remove from array so there is no repetition of qn
 		questions.splice(pickqn,1);
 	}
