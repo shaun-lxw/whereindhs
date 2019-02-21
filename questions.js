@@ -114,6 +114,7 @@ function endgame() {
 	document.getElementById('desc').innerHTML = 'End of game. Total score: ' + totalscore;
 	document.getElementById('score').innerHTML = '';
 	on();
+	storeresults();
 }
 function randQ() {
 	// startqn
