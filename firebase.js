@@ -46,4 +46,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 	document.getElementById('signinbutton').innerHTML = 'Sign in with Gmail!';
   }
 });
+var user = AUTH.currentUser;
+var db = firebase.firestore();
+function storeresults() {
+	
+}
 
