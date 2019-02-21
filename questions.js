@@ -4,6 +4,7 @@ var USER;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 	USER = user;
+	console.log('question js has auth obj.' + user.displayName + user.uid);
   }
 });
 var db = firebase.firestore();
