@@ -111,7 +111,7 @@ function start() {
 }
 function endgame() {
 	document.getElementById('answers').style.zIndex = 0;
-	document.getElementById('anspic'').src = '';
+	document.getElementById('anspic').src = '';
 	document.getElementById('desc').innerHTML = 'End of game. Total score: ' + totalscore;
 	document.getElementById('score').innerHTML = '';
 	document.getElementById('overlay').onclick = '';
