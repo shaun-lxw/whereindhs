@@ -1,4 +1,4 @@
-// firestore
+// firestore end game data
 // ===================================================================
 var USER;
 firebase.auth().onAuthStateChanged(function(user) {
@@ -28,7 +28,7 @@ function storeresults() {
 	});
 	}
 // ===============================================================	
-	
+
 // Number of questions in quiz
 const MAX = 10;
 var countqn = 0;
@@ -40,8 +40,24 @@ var correctans = [];
 var totalscore=0;
 // initialize questions
 var questions = [];
-var q1 = new Question('pics/canteen.JPG', ['canteen', 'wrong1', 'wrong2', 'wrong3'],
-'pics/canteenAns.JPG', '(desc)');
+function getdata(qn, type) {
+	db.collection('questions').doc(qn).get().then(function(doc){
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+		if (type == 'ans') {
+			return doc.data().ans;
+		}
+		else if (type == 'desc') {
+			return doc.data().desc;
+		}
+	}		
+	else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");		
+	})
+}}
+var q1 = new Question('pics/canteen.JPG', getdata('q1', 'ans'),
+'pics/canteenAns.JPG', getdata('q1', 'desc');
 var q2 = new Question('pics/paradesq.JPG', ['parade square', 'wrong1', 'wrong2', 'wrong3'],
 'pics/paradesqAns.JPG', '(desc)');
 var q3 = new Question('pics/platform.JPG', ['platform', 'wrong1', 'wrong2', 'wrong3'],
