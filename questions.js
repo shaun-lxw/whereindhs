@@ -54,8 +54,9 @@ function getdata(qn, type) {
 	else {
         // doc.data() will be undefined in this case
         console.log("No such document!");		
+	}
 	})
-}}
+}
 var q1 = new Question('pics/canteen.JPG', getdata('q1', 'ans'),
 'pics/canteenAns.JPG', getdata('q1', 'desc');
 var q2 = new Question('pics/paradesq.JPG', ['parade square', 'wrong1', 'wrong2', 'wrong3'],
