@@ -8,14 +8,15 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 var db = firebase.firestore();
 function storeresults() {
-	var userRef = db.collection('users').doc(USER.uid);
+	var userRef = db.collection('users').doc(USER.email);
 	var d = new Date();
 	var dd = d.getDate();
 	var mm = d.getMonth()+1;
 	var yyyy = d.getFullYear();
 	var today = dd + '-' + mm + '-' + yyyy;
-	var docRef = userRef.collection('games').doc(today);
-	docRef.set({
+	var docRef = userRef.collection('games');
+	docRef.add({
+		day: today;
 		time: d.getTime(),
 		score: totalscore
 	})
