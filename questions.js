@@ -16,7 +16,7 @@ function storeresults() {
 	var today = dd + '-' + mm + '-' + yyyy;
 	var docRef = userRef.collection('games');
 	docRef.add({
-		day: today;
+		day: today,
 		time: d.getTime(),
 		score: totalscore
 	})
