@@ -60,26 +60,26 @@ function getdata([qn, type]) {
 }
 var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
 'pics/canteenAns.JPG', ['q1', 'desc']);
-var q2 = new Question('pics/paradesq.JPG', ['parade square', 'wrong1', 'wrong2', 'wrong3'],
-'pics/paradesqAns.JPG', '(desc)');
-var q3 = new Question('pics/platform.JPG', ['platform', 'wrong1', 'wrong2', 'wrong3'],
-'pics/platformAns.JPG', '(desc)');
-var q4 = new Question('pics/zxy.JPG', ['zxy', 'wrong1', 'wrong2', 'wrong3'],
-'pics/zxyAns.JPG', '(desc)');
-var q5 = new Question('pics/bell.JPG', ['bell', 'wrong1', 'wrong2', 'wrong3'],
-'pics/bellAns.JPG', '(desc)');
-var q6 = new Question('pics/gslswing.JPG', ['gslswing', 'wrong1', 'wrong2', 'wrong3'],
-'pics/gslswingAns.JPG', '(desc)');
-var q7 = new Question('pics/bamboo.JPG', ['bamboo', 'wrong1', 'wrong2', 'wrong3'],
-'pics/bambooAns.JPG', '(desc)');
-var q8 = new Question('pics/canteenswing.JPG', ['canteen swing', 'wrong1', 'wrong2', 'wrong3'],
-'pics/canteenswingAns.JPG', '(desc)');
-var q9 = new Question('pics/zxyshelter.JPG', ['zxyshelter', 'wrong1', 'wrong2', 'wrong3'],
-'pics/zxyshelterAns.JPG', '(desc)');
-var q10 = new Question('pics/track.JPG', ['track', 'wrong1', 'wrong2', 'wrong3'],
-'pics/trackAns.JPG', '(desc)');
-var q11 = new Question('pics/bball.JPG', ['bball court', 'wrong1', 'wrong2', 'wrong3'],
-'pics/bballAns.JPG', '(desc)');
+// var q2 = new Question('pics/paradesq.JPG', ['parade square', 'wrong1', 'wrong2', 'wrong3'],
+// 'pics/paradesqAns.JPG', '(desc)');
+// var q3 = new Question('pics/platform.JPG', ['platform', 'wrong1', 'wrong2', 'wrong3'],
+// 'pics/platformAns.JPG', '(desc)');
+// var q4 = new Question('pics/zxy.JPG', ['zxy', 'wrong1', 'wrong2', 'wrong3'],
+// 'pics/zxyAns.JPG', '(desc)');
+// var q5 = new Question('pics/bell.JPG', ['bell', 'wrong1', 'wrong2', 'wrong3'],
+// 'pics/bellAns.JPG', '(desc)');
+// var q6 = new Question('pics/gslswing.JPG', ['gslswing', 'wrong1', 'wrong2', 'wrong3'],
+// 'pics/gslswingAns.JPG', '(desc)');
+// var q7 = new Question('pics/bamboo.JPG', ['bamboo', 'wrong1', 'wrong2', 'wrong3'],
+// 'pics/bambooAns.JPG', '(desc)');
+// var q8 = new Question('pics/canteenswing.JPG', ['canteen swing', 'wrong1', 'wrong2', 'wrong3'],
+// 'pics/canteenswingAns.JPG', '(desc)');
+// var q9 = new Question('pics/zxyshelter.JPG', ['zxyshelter', 'wrong1', 'wrong2', 'wrong3'],
+// 'pics/zxyshelterAns.JPG', '(desc)');
+// var q10 = new Question('pics/track.JPG', ['track', 'wrong1', 'wrong2', 'wrong3'],
+// 'pics/trackAns.JPG', '(desc)');
+// var q11 = new Question('pics/bball.JPG', ['bball court', 'wrong1', 'wrong2', 'wrong3'],
+// 'pics/bballAns.JPG', '(desc)');
 function Question(pic, ans, anspic, desc) {
 	this.pic = pic;
 	this.ans = ans;
