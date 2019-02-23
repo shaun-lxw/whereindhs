@@ -82,8 +82,8 @@ var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
 // 'pics/bballAns.JPG', '(desc)');
 function Question(pic, ans, anspic, desc) {
 	this.pic = pic;
-	this.ans = ans;
-	this.anspic = getdata(anspic);
+	this.ans = getdata(ans);
+	this.anspic = anspic;
 	this.desc = getdata(desc);
 	correctans.push(this.ans[0]);
 	questions.push(this);
