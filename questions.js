@@ -40,8 +40,9 @@ var correctans = [];
 var totalscore=0;
 // initialize questions
 var questions = [];
-function getdata(qn, type) {
-	db.collection('questions').doc(qn).get().then(function(doc){
+function getdata([qn, type]) {
+	db.collection('questions').doc(qn).get()
+	.then(function(doc) {
     if (doc.exists) {
         console.log("Document data:", doc.data());
 		if (type == 'ans') {
@@ -55,10 +56,10 @@ function getdata(qn, type) {
         // doc.data() will be undefined in this case
         console.log("No such document!");		
 	}
-	})
+	});
 }
-var q1 = new Question('pics/canteen.JPG', getdata('q1', 'ans'),
-'pics/canteenAns.JPG', getdata('q1', 'desc'));
+var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
+'pics/canteenAns.JPG', ['q1', 'desc']);
 var q2 = new Question('pics/paradesq.JPG', ['parade square', 'wrong1', 'wrong2', 'wrong3'],
 'pics/paradesqAns.JPG', '(desc)');
 var q3 = new Question('pics/platform.JPG', ['platform', 'wrong1', 'wrong2', 'wrong3'],
@@ -82,8 +83,8 @@ var q11 = new Question('pics/bball.JPG', ['bball court', 'wrong1', 'wrong2', 'wr
 function Question(pic, ans, anspic, desc) {
 	this.pic = pic;
 	this.ans = ans;
-	this.anspic = anspic;
-	this.desc = desc;
+	this.anspic = getdata(anspic);
+	this.desc = getdata(desc);
 	correctans.push(this.ans[0]);
 	questions.push(this);
 }
