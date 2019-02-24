@@ -51,7 +51,7 @@ function getdata([qn, type]) {
 		}
 		else if (type == 'desc') {
 			console.log('set desc');
-			qn.ans = return doc.data().desc;
+			qn.ans = doc.data().desc;
 		}
 	}		
 	else {
