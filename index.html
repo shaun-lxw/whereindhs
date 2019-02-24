@@ -11,12 +11,13 @@
 	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-firestore.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
 	<script src='myfirebase.js'></script>
-	</head>
+</head>
 
 <body background='pics/dhs.jpg'>
 	<h1>Where@DHS</h1>
 	<p class='indexp'>Welcome to our quiz game, Where@DHS, which tests you on your knowledge of our school campus.</p>
 	<p class='indexp' id='greeting'></p>
+	<button class='indexbutton' onclick='signout();' id='signoutbutton'>Sign out</button>
 	<button class='indexbutton' onclick='signin();' id='signinbutton' disabled>Loading...</button>
 	<button class='indexbutton' onclick="window.location.href = 'game.html';" id='start'>START</button>
 	<img onmouseover="document.getElementById('rules').style.display='block';" onmouseout="document.getElementById('rules').style.display='none';" id='qn' src='pics/qn.png'>
