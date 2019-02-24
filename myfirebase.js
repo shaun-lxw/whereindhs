@@ -21,6 +21,16 @@ function signin() {
 		document.getElementById('signinbutton').innerHTML = 'Error... Sign In Again';
 	})
 }
+function signout() {
+	firebase.auth().signOut().then(function() {
+	  // Sign-out successful.
+	  console.log('User signed out');
+	}).catch(function(error) {
+	  // An error happened.
+	  console.log('Error signing out:' + error);
+	});
+}
+var db = firebase.firestore();
 AUTH.onAuthStateChanged(function(user) {
   if (user) {
 	// User is signed in.
@@ -33,9 +43,10 @@ AUTH.onAuthStateChanged(function(user) {
 	var providerData = user.providerData;
 	// ...
 	if (document.getElementById('signinbutton')) {
-		signinbutton.style.display = 'none';
+		document.getElementById('signinbutton').style.display = 'none';
 		document.getElementById('greeting').innerHTML = 'Hello, <br />' + displayName;
 		document.getElementById('greeting').style.display = 'block';
+		document.getElementById('signoutbutton').style.display = 'block';
 		document.getElementById('start').style.display = 'block';
 		document.getElementById('qn').style.display = 'block';
 	}
@@ -43,6 +54,11 @@ AUTH.onAuthStateChanged(function(user) {
     // User is signed out.
     // ...
 	if (document.getElementById('signinbutton')) {
+		document.getElementById('greeting').style.display = 'none';
+		document.getElementById('signoutbutton').style.display = 'none';
+		document.getElementById('start').style.display = 'none';
+		document.getElementById('qn').style.display = 'none';
+		document.getElementById('signinbutton').style.display = 'block';
 		document.getElementById('signinbutton').disabled = false;
 		document.getElementById('signinbutton').innerHTML = 'Sign in with Gmail!';
 	}
