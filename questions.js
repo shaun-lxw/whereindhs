@@ -49,12 +49,13 @@ function getdata([qn, type]) {
 			console.log('set ans');
 			console.log(qn);
 			console.log(qn.ans = doc.data().ans);
-			qn.ans = doc.data().ans;
+			console.log(qn.ans);
+			q1.ans = doc.data().ans;
 		}
 		else if (type == 'desc') {
 			console.log('set desc');
 			console.log(qn);
-			qn.ans = doc.data().desc;
+			q1.ans = doc.data().desc;
 		}
 	}		
 	else {
@@ -93,7 +94,7 @@ function Question(pic, ans, anspic, desc) {
 	// correctans.push(this.ans[0]);
 	questions.push(this);
 }
-debugger;
+
 window.onload = start();
 
 function start() {
