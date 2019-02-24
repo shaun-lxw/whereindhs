@@ -9,14 +9,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 var db = firebase.firestore();
 function storeresults() {
 	var userRef = db.collection('users').doc(USER.email);
-	userRef.add({
-		userid = USER.uid
-	}).then(function() {
-		console.log('User id succesfully written!')
-	})
-	.catch(function(error) {
-		console.log('Error writing user document: ' + error)
-	});
 	var d = new Date();
 	var dd = d.getDate();
 	var mm = d.getMonth()+1;
