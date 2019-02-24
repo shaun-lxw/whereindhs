@@ -64,8 +64,8 @@ function getdata([qn, type]) {
 	}
 	});
 }
-var q1 = new Question('pics/canteen.JPG', getdata(['q1', 'ans']),
-'pics/canteenAns.JPG', getdata(['q1', 'desc']));
+var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
+'pics/canteenAns.JPG', ['q1', 'desc']);
 // var q2 = new Question('pics/paradesq.JPG', ['parade square', 'wrong1', 'wrong2', 'wrong3'],
 // 'pics/paradesqAns.JPG', '(desc)');
 // var q3 = new Question('pics/platform.JPG', ['platform', 'wrong1', 'wrong2', 'wrong3'],
@@ -88,11 +88,9 @@ var q1 = new Question('pics/canteen.JPG', getdata(['q1', 'ans']),
 // 'pics/bballAns.JPG', '(desc)');
 function Question(pic, ans, anspic, desc) {
 	this.pic = pic;
-	// this.ans = ans;
+	getdata(ans)
 	this.anspic = anspic;
-	// this.desc = desc;
-	// correctans.push(this.ans[0]);
-	// questions.push(this);
+	getdata(desc)
 }
 
 window.onload = start();
