@@ -47,10 +47,13 @@ function getdata([qn, type]) {
         console.log("Document data:", doc.data());
 		if (type == 'ans') {
 			console.log('set ans');
+			console.log(qn);
+			console.log(qn.ans = doc.data().ans);
 			qn.ans = doc.data().ans;
 		}
 		else if (type == 'desc') {
 			console.log('set desc');
+			console.log(qn);
 			qn.ans = doc.data().desc;
 		}
 	}		
