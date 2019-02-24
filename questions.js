@@ -88,9 +88,9 @@ var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
 // 'pics/bballAns.JPG', '(desc)');
 function Question(pic, ans, anspic, desc) {
 	this.pic = pic;
-	getdata(ans)
+	getdata(ans);
 	this.anspic = anspic;
-	getdata(desc)
+	getdata(desc);
 }
 
 window.onload = start();
