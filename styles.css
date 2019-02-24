@@ -126,7 +126,7 @@ h1 {
 	color: white;
 }
 #start {
-	display: block;
+	display: none;
 }
 #answers {
 	display: flex;
