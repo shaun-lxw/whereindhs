@@ -111,6 +111,10 @@ h1 {
 }
 #rules {
 	display: none;
+	position: fixed;
+	width: 30vw;
+	left: 4vw;
+	bottom: 10vh;
 }
 .indexbutton {
 	display: block;
