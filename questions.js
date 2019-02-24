@@ -47,13 +47,16 @@ function getdata([qn, type]) {
         console.log("Document data:", doc.data());
 		if (type == 'ans') {
 			console.log('set ans');
-			console.log(qn.ans);
-			q1.ans = doc.data().ans;
+			this[qn].ans = doc.data().ans;
+			correctans.push(doc.data().ans[0]);
 		}
 		else if (type == 'desc') {
 			console.log('set desc');
-			q1.desc = doc.data().desc;
+			this[qn].desc = doc.data().desc;
 		}
+	if (this[qn].ans && this[qn].desc) {
+		questions.push(this[qn])
+	}
 	}		
 	else {
         // doc.data() will be undefined in this case
@@ -89,7 +92,7 @@ function Question(pic, ans, anspic, desc) {
 	this.anspic = anspic;
 	// this.desc = desc;
 	// correctans.push(this.ans[0]);
-	questions.push(this);
+	// questions.push(this);
 }
 
 window.onload = start();
