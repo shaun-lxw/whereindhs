@@ -10,7 +10,7 @@ var db = firebase.firestore();
 function storeresults() {
 	var userRef = db.collection('users').doc(USER.email);
 	userRef.add({
-		uid = USER.uid
+		userid = USER.uid
 	}).then(function() {
 		console.log('User id succesfully written!')
 	})
