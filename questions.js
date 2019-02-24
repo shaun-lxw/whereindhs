@@ -79,12 +79,12 @@ var q1 = new Question('pics/canteen.JPG', 'q1',
 function Question(pic, ans, anspic, desc) {
 	this.pic = pic;
 	getdata(ans, function(fields) {
-		this.ans = fields.ans
+		Question.ans = fields.ans
 		correctans.push(this.ans[0]);
 	})
 	this.anspic = anspic;
 	getdata(desc, function(fields) {
-		this.desc = fields.desc
+		Question.desc = fields.desc
 	})
 	questions.push(this);
 }
