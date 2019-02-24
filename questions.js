@@ -93,7 +93,7 @@ function Question(pic, ans, anspic, desc) {
 	// correctans.push(this.ans[0]);
 	questions.push(this);
 }
-
+debugger;
 window.onload = start();
 
 function start() {
