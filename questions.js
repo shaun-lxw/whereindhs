@@ -92,7 +92,7 @@ function Question(pic, ans, anspic, desc) {
 	this.anspic = anspic;
 	getdata(desc);
 }
-initqn(start);
+
 window.onload = animatestart();
 
 function animatestart() {
