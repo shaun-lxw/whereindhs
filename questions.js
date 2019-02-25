@@ -113,16 +113,18 @@ function animatestart() {
 	}
 }
 function start() {
-	document.getElementById('animate').parentNode.removeChild(animate);
-	document.getElementById('answers').style.zIndex = 3;
-	document.getElementById('prompt').style.display = 'block';
-	document.getElementById('desc').style.display = 'block';
-	document.getElementById('anspic').style.display = 'block';
-	document.getElementById('overlay').onclick = randQ;
 	var pickqn = Math.floor(Math.random()*questions.length);
 	currqn = questions[pickqn];
 	document.getElementById('picture').src = currqn.pic;
-	setTimeout(randQ(), 1000);
+	setTimeout(function() {
+		document.getElementById('animate').parentNode.removeChild(animate);
+		document.getElementById('answers').style.zIndex = 3;
+		document.getElementById('prompt').style.display = 'block';
+		document.getElementById('desc').style.display = 'block';
+		document.getElementById('anspic').style.display = 'block';
+		document.getElementById('overlay').onclick = randQ;
+		randQ();
+	}, 1000);
 }
 function endgame() {
 	document.getElementById('answers').style.zIndex = 0;
