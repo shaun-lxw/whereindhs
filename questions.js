@@ -107,7 +107,7 @@ function animatestart() {
 	function grow() {
 		if (size > 19) {
 			clearInterval(go);
-			start();
+			setTimeout(start(),1000);
 		} else {
 			size += 0.1;
 			animate.style.fontSize = size+'vw';
