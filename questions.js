@@ -107,7 +107,7 @@ function animatestart() {
 	function grow() {
 		if (size > 19) {
 			clearInterval(go);
-			setTimeout(start(),1000);
+			setTimeout(start,1000);
 		} else {
 			size += 0.1;
 			animate.style.fontSize = size+'vw';
@@ -115,7 +115,7 @@ function animatestart() {
 	}
 }
 function start() {
-	animate.parentNode.removeChild(animate);
+	document.getElementById('animate').parentNode.removeChild(animate);
 	document.getElementById('answers').style.zIndex = 3;
 	document.getElementById('prompt').style.display = 'block';
 	document.getElementById('desc').style.display = 'block';
