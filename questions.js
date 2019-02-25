@@ -69,14 +69,14 @@ function getdata([qn, type]) {
 }
 var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
 'pics/canteenAns.JPG', ['q1', 'desc']);
-// var q2 = new Question('pics/paradesq.JPG', ['parade square', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/paradesqAns.JPG', '(desc)');
-// var q3 = new Question('pics/platform.JPG', ['platform', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/platformAns.JPG', '(desc)');
-// var q4 = new Question('pics/zxy.JPG', ['zxy', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/zxyAns.JPG', '(desc)');
-// var q5 = new Question('pics/bell.JPG', ['bell', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/bellAns.JPG', '(desc)');
+var q2 = new Question('pics/paradesq.JPG', ['q2', 'ans'],
+'pics/paradesqAns.JPG', ['q2', 'desc']);
+var q3 = new Question('pics/platform.JPG', ['q3', 'ans'],
+'pics/platformAns.JPG', ['q3', 'desc']);
+var q4 = new Question('pics/zxy.JPG', ['q4', 'ans'],
+'pics/zxyAns.JPG', ['q4', 'desc']);
+var q5 = new Question('pics/bell.JPG', ['q5', 'ans'],
+'pics/bellAns.JPG', ['q5', 'desc']);
 // var q6 = new Question('pics/gslswing.JPG', ['gslswing', 'wrong1', 'wrong2', 'wrong3'],
 // 'pics/gslswingAns.JPG', '(desc)');
 // var q7 = new Question('pics/bamboo.JPG', ['bamboo', 'wrong1', 'wrong2', 'wrong3'],
