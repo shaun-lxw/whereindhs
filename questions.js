@@ -35,8 +35,8 @@ var countqn = 0;
 var currqn;
 //button id
 var buttid = ['first','second','third','fourth'];
-// Array of correct answers
-var correctans = [];
+// init correct ans
+var correctans;
 var totalscore=0;
 // initialize questions
 var questions = [];
@@ -48,15 +48,12 @@ function getdata([qn, type]) {
 		if (type == 'ans') {
 			console.log('set ans');
 			this[qn].ans = doc.data().ans;
-			correctans.push(doc.data().ans[0]);
+			this[qn].correct = doc.data().ans[0];
 		}
 		else if (type == 'desc') {
 			console.log('set desc');
 			this[qn].desc = doc.data().desc;
 		}
-	console.log(this[qn].ans);
-	console.log(this[qn].desc);
-	console.log(this[qn].ans && this[qn].desc);
 	if (this[qn].ans && this[qn].desc) {
 		questions.push(this[qn])
 	}
@@ -89,6 +86,7 @@ var q10 = new Question('pics/track.JPG', ['q10', 'ans'],
 'pics/trackAns.JPG', ['q10', 'desc']);
 var q11 = new Question('pics/bball.JPG', ['q11', 'ans'],
 'pics/bballAns.JPG', ['q11', 'desc']);
+//obj with properties pic, ans, anspic, desc, correct
 function Question(pic, ans, anspic, desc) {
 	this.pic = pic;
 	getdata(ans);
@@ -155,6 +153,7 @@ function randQ() {
 		randA(currqn.ans);
 		document.getElementById('desc').innerHTML = currqn.desc;
 		document.getElementById('anspic').src = currqn.anspic;
+		correctans = currqn.correct;
 		// remove from array so there is no repetition of qn
 		questions.splice(questions.indexOf(currqn), 1);
 		countdown(10);
@@ -187,13 +186,13 @@ function endqn() {
 	}
 }
 
-// when answer button in html clicked, function called with the button (element) passed as parameter
+// when answer button in html clicked, function called with the button(element) passed as parameter
 function checkans(ans) {
 	clearInterval(count);
 	endqn();
 	var time = document.getElementById('timer').innerHTML;
 	var score = document.getElementById('score');
-	if (correctans.includes(ans.innerHTML)) {
+	if (ans.innerHTML = correctans) {
 		//handles score
 		if (time > 8) {
 			score.innerHTML = 'Correct Answer! +1pt <br/> Time bonus! +2pt';
