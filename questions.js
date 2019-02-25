@@ -54,6 +54,9 @@ function getdata([qn, type]) {
 			console.log('set desc');
 			this[qn].desc = doc.data().desc;
 		}
+	console.log(this[qn].ans);
+	console.log(this[qn].desc);
+	console.log(this[qn].ans && this[qn].desc);
 	if (this[qn].ans && this[qn].desc) {
 		questions.push(this[qn])
 	}
