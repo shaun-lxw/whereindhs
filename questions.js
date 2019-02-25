@@ -194,7 +194,7 @@ function checkans(ans) {
 	endqn();
 	var time = document.getElementById('timer').innerHTML;
 	var score = document.getElementById('score');
-	if (ans.innerHTML = correctans) {
+	if (ans.innerHTML == correctans) {
 		//handles score
 		if (time > 8) {
 			score.innerHTML = 'Correct Answer! +1pt <br/> Time bonus! +2pt';
