@@ -66,7 +66,7 @@ function getdata([qn, type]) {
 	});
 }
 function initqn(callback) {
-	var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
+	q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
 	'pics/canteenAns.JPG', ['q1', 'desc']);
 	// var q2 = new Question('pics/paradesq.JPG', ['parade square', 'wrong1', 'wrong2', 'wrong3'],
 	// 'pics/paradesqAns.JPG', '(desc)');
@@ -90,14 +90,13 @@ function initqn(callback) {
 	// 'pics/bballAns.JPG', '(desc)');
 	callback();
 }
-initqn(start);
 function Question(pic, ans, anspic, desc) {
 	this.pic = pic;
 	getdata(ans);
 	this.anspic = anspic;
 	getdata(desc);
 }
-
+initqn(start);
 window.onload = animatestart();
 
 function animatestart() {
