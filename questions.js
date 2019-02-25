@@ -120,7 +120,7 @@ function start() {
 	document.getElementById('prompt').style.display = 'block';
 	document.getElementById('desc').style.display = 'block';
 	document.getElementById('anspic').style.display = 'block';
-	document.getElementById('overlay').onclick = 'randQ()';
+	document.getElementById('overlay').onclick = randQ();
 	var pickqn = Math.floor(Math.random()*questions.length);
 	currqn = questions[pickqn];
 	document.getElementById('picture').src = currqn.pic;
