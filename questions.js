@@ -77,18 +77,18 @@ var q4 = new Question('pics/zxy.JPG', ['q4', 'ans'],
 'pics/zxyAns.JPG', ['q4', 'desc']);
 var q5 = new Question('pics/bell.JPG', ['q5', 'ans'],
 'pics/bellAns.JPG', ['q5', 'desc']);
-// var q6 = new Question('pics/gslswing.JPG', ['gslswing', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/gslswingAns.JPG', '(desc)');
-// var q7 = new Question('pics/bamboo.JPG', ['bamboo', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/bambooAns.JPG', '(desc)');
-// var q8 = new Question('pics/canteenswing.JPG', ['canteen swing', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/canteenswingAns.JPG', '(desc)');
-// var q9 = new Question('pics/zxyshelter.JPG', ['zxyshelter', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/zxyshelterAns.JPG', '(desc)');
-// var q10 = new Question('pics/track.JPG', ['track', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/trackAns.JPG', '(desc)');
-// var q11 = new Question('pics/bball.JPG', ['bball court', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/bballAns.JPG', '(desc)');
+var q6 = new Question('pics/gslswing.JPG', ['q6', 'ans'],
+'pics/gslswingAns.JPG', ['q6', 'desc']);
+var q7 = new Question('pics/bamboo.JPG', ['q7', 'ans'],
+'pics/bambooAns.JPG', ['q7', 'desc']);
+var q8 = new Question('pics/canteenswing.JPG', ['q8', 'ans'],
+'pics/canteenswingAns.JPG', ['q8', 'desc']);
+var q9 = new Question('pics/zxyshelter.JPG', ['q9', 'ans'],
+'pics/zxyshelterAns.JPG', ['q9', 'desc']);
+var q10 = new Question('pics/track.JPG', ['q10', 'ans'],
+'pics/trackAns.JPG', ['q10', 'desc']);
+var q11 = new Question('pics/bball.JPG', ['q11', 'ans'],
+'pics/bballAns.JPG', ['q11', 'desc']);
 function Question(pic, ans, anspic, desc) {
 	this.pic = pic;
 	getdata(ans);
@@ -120,7 +120,7 @@ function start() {
 	document.getElementById('prompt').style.display = 'block';
 	document.getElementById('desc').style.display = 'block';
 	document.getElementById('anspic').style.display = 'block';
-	document.getElementById('overlay').onclick = randQ;
+	document.getElementById('overlay').onclick = randQ();
 	var pickqn = Math.floor(Math.random()*questions.length);
 	currqn = questions[pickqn];
 	document.getElementById('picture').src = currqn.pic;
