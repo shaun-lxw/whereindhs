@@ -15,10 +15,10 @@ body {
 	background-position: center;
 }
 button {
-	height: 50px;
-	width: 200px;
+	height: 8vmin;
+	width: 25vmin;
 	font-family: 'Comfortaa';
-	font-size: 100%;
+	font-size: 3vmin;
 	background-color: white;
 	color: black;
 	border: 2px solid #555555;
@@ -32,16 +32,16 @@ button:hover {
 h1 {
 	text-align: center;
 	font-family: 'Bungee Shade';
-	font-size: 250%;
+	font-size: 6vmin;
 }
 .indexp {
 	text-align: center;
 	font-family: 'Contrail One';
-	font-size: 120%;
+	font-size: 3vmin;
 }
 #greeting {
 	display: none;
-	font-size: 180%;
+	font-size: 4vmin;
 }
 #picture {
 	display: block;
@@ -104,7 +104,7 @@ h1 {
 }
 #qn {
 	display: none;
-	width: 5%;
+	width: 4vmin;
 	opacity: 0.8;
 	margin-left: auto;
 	margin-right: auto;
