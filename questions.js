@@ -64,28 +64,32 @@ function getdata([qn, type]) {
 	}
 	});
 }
-var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
-'pics/canteenAns.JPG', ['q1', 'desc']);
-// var q2 = new Question('pics/paradesq.JPG', ['parade square', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/paradesqAns.JPG', '(desc)');
-// var q3 = new Question('pics/platform.JPG', ['platform', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/platformAns.JPG', '(desc)');
-// var q4 = new Question('pics/zxy.JPG', ['zxy', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/zxyAns.JPG', '(desc)');
-// var q5 = new Question('pics/bell.JPG', ['bell', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/bellAns.JPG', '(desc)');
-// var q6 = new Question('pics/gslswing.JPG', ['gslswing', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/gslswingAns.JPG', '(desc)');
-// var q7 = new Question('pics/bamboo.JPG', ['bamboo', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/bambooAns.JPG', '(desc)');
-// var q8 = new Question('pics/canteenswing.JPG', ['canteen swing', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/canteenswingAns.JPG', '(desc)');
-// var q9 = new Question('pics/zxyshelter.JPG', ['zxyshelter', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/zxyshelterAns.JPG', '(desc)');
-// var q10 = new Question('pics/track.JPG', ['track', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/trackAns.JPG', '(desc)');
-// var q11 = new Question('pics/bball.JPG', ['bball court', 'wrong1', 'wrong2', 'wrong3'],
-// 'pics/bballAns.JPG', '(desc)');
+function initqn(callback) {
+	var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
+	'pics/canteenAns.JPG', ['q1', 'desc']);
+	// var q2 = new Question('pics/paradesq.JPG', ['parade square', 'wrong1', 'wrong2', 'wrong3'],
+	// 'pics/paradesqAns.JPG', '(desc)');
+	// var q3 = new Question('pics/platform.JPG', ['platform', 'wrong1', 'wrong2', 'wrong3'],
+	// 'pics/platformAns.JPG', '(desc)');
+	// var q4 = new Question('pics/zxy.JPG', ['zxy', 'wrong1', 'wrong2', 'wrong3'],
+	// 'pics/zxyAns.JPG', '(desc)');
+	// var q5 = new Question('pics/bell.JPG', ['bell', 'wrong1', 'wrong2', 'wrong3'],
+	// 'pics/bellAns.JPG', '(desc)');
+	// var q6 = new Question('pics/gslswing.JPG', ['gslswing', 'wrong1', 'wrong2', 'wrong3'],
+	// 'pics/gslswingAns.JPG', '(desc)');
+	// var q7 = new Question('pics/bamboo.JPG', ['bamboo', 'wrong1', 'wrong2', 'wrong3'],
+	// 'pics/bambooAns.JPG', '(desc)');
+	// var q8 = new Question('pics/canteenswing.JPG', ['canteen swing', 'wrong1', 'wrong2', 'wrong3'],
+	// 'pics/canteenswingAns.JPG', '(desc)');
+	// var q9 = new Question('pics/zxyshelter.JPG', ['zxyshelter', 'wrong1', 'wrong2', 'wrong3'],
+	// 'pics/zxyshelterAns.JPG', '(desc)');
+	// var q10 = new Question('pics/track.JPG', ['track', 'wrong1', 'wrong2', 'wrong3'],
+	// 'pics/trackAns.JPG', '(desc)');
+	// var q11 = new Question('pics/bball.JPG', ['bball court', 'wrong1', 'wrong2', 'wrong3'],
+	// 'pics/bballAns.JPG', '(desc)');
+	callback();
+}
+initqn(start);
 function Question(pic, ans, anspic, desc) {
 	this.pic = pic;
 	getdata(ans);
@@ -93,13 +97,9 @@ function Question(pic, ans, anspic, desc) {
 	getdata(desc);
 }
 
-window.onload = start();
+window.onload = animatestart();
 
-function start() {
-	var pickqn = Math.floor(Math.random()*questions.length);
-	currqn = questions[pickqn];
-	document.getElementById('picture').src = currqn.pic;
-	randQ();
+function animatestart() {
 	// Animate start
 	var animate = document.getElementById('animate');
 	var size = 5;
@@ -108,28 +108,23 @@ function start() {
 	function grow() {
 		if (size > 19) {
 			clearInterval(go);
-			setTimeout(function() {
-				animate.parentNode.removeChild(animate);
-				off();
-				document.getElementById('answers').style.zIndex = 3;
-				document.getElementById('prompt').style.display = 'block';
-				document.getElementById('desc').style.display = 'block';
-				document.getElementById('anspic').style.display = 'block';
-				countdown(10);
-				document.getElementById('overlay').onclick = function () {
-					if (countqn == MAX) {
-						randQ(); 
-					} else {
-						randQ();
-						countdown(10);
-					}
-				}
-			},1000);
 		} else {
 			size += 0.1;
 			animate.style.fontSize = size+'vw';
 		}
 	}
+}
+function start() {
+	animate.parentNode.removeChild(animate);
+	document.getElementById('answers').style.zIndex = 3;
+	document.getElementById('prompt').style.display = 'block';
+	document.getElementById('desc').style.display = 'block';
+	document.getElementById('anspic').style.display = 'block';
+	document.getElementById('overlay').onclick = 'randQ()';
+	var pickqn = Math.floor(Math.random()*questions.length);
+	currqn = questions[pickqn];
+	document.getElementById('picture').src = currqn.pic;
+	setTimeout(randQ(), 1000);
 }
 function endgame() {
 	document.getElementById('answers').style.zIndex = 0;
@@ -162,6 +157,7 @@ function randQ() {
 		document.getElementById('anspic').src = currqn.anspic;
 		// remove from array so there is no repetition of qn
 		questions.splice(questions.indexOf(currqn), 1);
+		countdown(10);
 	}
 }
 function randA(ans) {
