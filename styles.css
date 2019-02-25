@@ -163,3 +163,8 @@ h1 {
 #signoutbutton {
 	display: none;
 }
+#first, #second, #third, #fourth {
+	height: 15vmin;
+	width: 40vmin;
+	font-size: 2.8vmin;
+}
