@@ -204,6 +204,7 @@ function randQ() {
 	for (var i=0; i < 4; i++) {
 		var butt = document.getElementById(buttid[i]);
 		butt.style.backgroundColor = 'white';
+		butt.className = 'button';
 	}
 	for (var i=0; i < 4; i++) {
 		document.getElementById(buttid[i]).disabled = false;
@@ -237,6 +238,7 @@ function endqn() {
 	// disable buttons
 	for (var i=0; i < 4; i++) {
 		document.getElementById(buttid[i]).disabled = true;
+		document.getElementById(buttid[i]).className = '';
 	}
 	//highlight right ans in green
 	for (var i=0; i < 4; i++) {
