@@ -98,7 +98,7 @@ var buttid = ['first','second','third','fourth'];
 // init correct ans
 var correctans;
 var totalscore=0;
-var questions;
+var questions = [];
 if (window.location.href == "https://shaunlxw.github.io/whereindhs/") {
 	// initialize questions, store in sessionStorage
 	function getdata([qn, type]) {
