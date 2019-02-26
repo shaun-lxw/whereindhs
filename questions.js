@@ -1,12 +1,72 @@
-// firestore end game data
+// firestore
 // ===================================================================
-var USER;
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-	USER = user;
-  }
-});
+// Initialize Firebase
+var config = {
+	apiKey: "AIzaSyCvpA372tjk1E7lOAks4STgllDxwPdQy1Y",
+	authDomain: "whereindhs.firebaseapp.com",
+	databaseURL: "https://whereindhs.firebaseio.com",
+	projectId: "whereindhs",
+	storageBucket: "whereindhs.appspot.com",
+	messagingSenderId: "642970983978"
+};
+firebase.initializeApp(config);
+var AUTH = firebase.auth();
+var provider = new firebase.auth.GoogleAuthProvider();
 var db = firebase.firestore();
+var USER;
+function signin() {
+	document.getElementById('signinbutton').innerHTML = 'Loading...';
+	AUTH.signInWithRedirect(provider).then((result) => {
+		console.log('[APP, Firebase] User Sign In Sucessful');
+		console.log(result);
+	}).catch((error) => {
+		console.error('[App, Firebase] User Sign In Error', error);
+		document.getElementById('signinbutton').innerHTML = 'Error... Sign In Again';
+	})
+}
+function signout() {
+	firebase.auth().signOut().then(function() {
+	  // Sign-out successful.
+	  console.log('User signed out');
+	}).catch(function(error) {
+	  // An error happened.
+	  console.log('Error signing out:' + error);
+	});
+}
+AUTH.onAuthStateChanged(function(user) {
+	if (user) {
+	USER = user;
+	// User is signed in.
+	var displayName = user.displayName;
+	var email = user.email;
+	var emailVerified = user.emailVerified;
+	var photoURL = user.photoURL;
+	var isAnonymous = user.isAnonymous;
+	var uid = user.uid;
+	var providerData = user.providerData;
+	// ...
+	if (document.getElementById('signinbutton')) {
+		document.getElementById('signinbutton').style.display = 'none';
+		document.getElementById('greeting').innerHTML = 'Hello, <br />' + displayName;
+		document.getElementById('greeting').style.display = 'block';
+		document.getElementById('signoutbutton').style.display = 'block';
+		document.getElementById('start').style.display = 'block';
+		document.getElementById('qn').style.display = 'block';
+	}
+	} else {
+	// User is signed out.
+	// ...
+	if (document.getElementById('signinbutton')) {
+		document.getElementById('greeting').style.display = 'none';
+		document.getElementById('signoutbutton').style.display = 'none';
+		document.getElementById('start').style.display = 'none';
+		document.getElementById('qn').style.display = 'none';
+		document.getElementById('signinbutton').style.display = 'block';
+		document.getElementById('signinbutton').disabled = false;
+		document.getElementById('signinbutton').innerHTML = 'Sign in with Gmail!';
+	}
+	}
+	});
 function storeresults() {
 	var userRef = db.collection('users').doc(USER.email);
 	var d = new Date();
@@ -38,66 +98,67 @@ var buttid = ['first','second','third','fourth'];
 // init correct ans
 var correctans;
 var totalscore=0;
-// initialize questions
-var questions = [];
-function getdata([qn, type]) {
-	db.collection('questions').doc(qn).get()
-	.then(function(doc) {
-    if (doc.exists) {
-        console.log("Document data:", doc.data());
-		if (type == 'ans') {
-			console.log('set ans');
-			this[qn].ans = doc.data().ans;
-			this[qn].correct = doc.data().ans[0];
+var questions;
+if (window.location.href == "https://shaunlxw.github.io/whereindhs/") {
+	// initialize questions, store in sessionStorage
+	function getdata([qn, type]) {
+		db.collection('questions').doc(qn).get()
+		.then(function(doc) {
+		if (doc.exists) {
+			console.log("Document data:", doc.data());
+			if (type == 'ans') {
+				this[qn].ans = doc.data().ans;
+				this[qn].correct = doc.data().ans[0];
+			}
+			else if (type == 'desc') {
+				this[qn].desc = doc.data().desc;
+			}
+		if (this[qn].ans && this[qn].desc) {
+			questions.push(this[qn])
+			sessionStorage.setItem('questions', JSON.stringify(questions));
 		}
-		else if (type == 'desc') {
-			console.log('set desc');
-			this[qn].desc = doc.data().desc;
+		}	
+		else {
+			// doc.data() will be undefined in this case
+			console.log("No such document!");		
 		}
-	if (this[qn].ans && this[qn].desc) {
-		questions.push(this[qn])
+		});
 	}
-	}		
-	else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");		
+	var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
+	'pics/canteenAns.JPG', ['q1', 'desc']);
+	var q2 = new Question('pics/paradesq.JPG', ['q2', 'ans'],
+	'pics/paradesqAns.JPG', ['q2', 'desc']);
+	var q3 = new Question('pics/platform.JPG', ['q3', 'ans'],
+	'pics/platformAns.JPG', ['q3', 'desc']);
+	var q4 = new Question('pics/zxy.JPG', ['q4', 'ans'],
+	'pics/zxyAns.JPG', ['q4', 'desc']);
+	var q5 = new Question('pics/bell.JPG', ['q5', 'ans'],
+	'pics/bellAns.JPG', ['q5', 'desc']);
+	var q6 = new Question('pics/gslswing.JPG', ['q6', 'ans'],
+	'pics/gslswingAns.JPG', ['q6', 'desc']);
+	var q7 = new Question('pics/bamboo.JPG', ['q7', 'ans'],
+	'pics/bambooAns.JPG', ['q7', 'desc']);
+	var q8 = new Question('pics/canteenswing.JPG', ['q8', 'ans'],
+	'pics/canteenswingAns.JPG', ['q8', 'desc']);
+	var q9 = new Question('pics/zxyshelter.JPG', ['q9', 'ans'],
+	'pics/zxyshelterAns.JPG', ['q9', 'desc']);
+	var q10 = new Question('pics/track.JPG', ['q10', 'ans'],
+	'pics/trackAns.JPG', ['q10', 'desc']);
+	var q11 = new Question('pics/bball.JPG', ['q11', 'ans'],
+	'pics/bballAns.JPG', ['q11', 'desc']);
+	//obj with properties pic, ans, anspic, desc, correct
+	function Question(pic, ans, anspic, desc) {
+		this.pic = pic;
+		getdata(ans);
+		this.anspic = anspic;
+		getdata(desc);
 	}
-	});
-}
-var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
-'pics/canteenAns.JPG', ['q1', 'desc']);
-console.log('set q2');
-var q2 = new Question('pics/paradesq.JPG', ['q2', 'ans'],
-'pics/paradesqAns.JPG', ['q2', 'desc']);
-console.log('set q3');
-var q3 = new Question('pics/platform.JPG', ['q3', 'ans'],
-'pics/platformAns.JPG', ['q3', 'desc']);
-console.log('set q4');
-var q4 = new Question('pics/zxy.JPG', ['q4', 'ans'],
-'pics/zxyAns.JPG', ['q4', 'desc']);
-var q5 = new Question('pics/bell.JPG', ['q5', 'ans'],
-'pics/bellAns.JPG', ['q5', 'desc']);
-var q6 = new Question('pics/gslswing.JPG', ['q6', 'ans'],
-'pics/gslswingAns.JPG', ['q6', 'desc']);
-var q7 = new Question('pics/bamboo.JPG', ['q7', 'ans'],
-'pics/bambooAns.JPG', ['q7', 'desc']);
-var q8 = new Question('pics/canteenswing.JPG', ['q8', 'ans'],
-'pics/canteenswingAns.JPG', ['q8', 'desc']);
-var q9 = new Question('pics/zxyshelter.JPG', ['q9', 'ans'],
-'pics/zxyshelterAns.JPG', ['q9', 'desc']);
-var q10 = new Question('pics/track.JPG', ['q10', 'ans'],
-'pics/trackAns.JPG', ['q10', 'desc']);
-var q11 = new Question('pics/bball.JPG', ['q11', 'ans'],
-'pics/bballAns.JPG', ['q11', 'desc']);
-//obj with properties pic, ans, anspic, desc, correct
-function Question(pic, ans, anspic, desc) {
-	this.pic = pic;
-	getdata(ans);
-	this.anspic = anspic;
-	getdata(desc);
 }
 
-window.onload = animatestart();
+if (window.location.href == "https://shaunlxw.github.io/whereindhs/game.html") {
+	questions = sessionStorage.getItem('questions');
+	window.onload = animatestart();
+}
 
 function animatestart() {
 	// Animate start
@@ -108,7 +169,7 @@ function animatestart() {
 	function grow() {
 		if (size > 19) {
 			clearInterval(go);
-			setTimeout(start,1000);
+			start();
 		} else {
 			size += 0.1;
 			animate.style.fontSize = size+'vw';
