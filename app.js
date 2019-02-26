@@ -16,7 +16,7 @@ var db = firebase.firestore();
 var USER;
 function signin() {
 	document.getElementById('signinbutton').innerHTML = 'Loading...';
-	AUTH.signInWithPopup(provider).then((result) => {
+	AUTH.signInWithRedirect(provider).then((result) => {
 		console.log('[APP, Firebase] User Sign In Sucessful');
 		console.log(result);
 	}).catch((error) => {
