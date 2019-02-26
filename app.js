@@ -260,11 +260,11 @@ function checkans(ans) {
 	var score = document.getElementById('score');
 	if (ans.innerHTML == correctans) {
 		//handles score
-		if (time > 8) {
+		if (time > 6) {
 			score.innerHTML = 'Correct Answer! +1pt <br/> Time bonus! +2pt';
 			totalscore += 3;
 		} 
-		else if (time > 5 && time < 9) {
+		else if (time > 3 && time < 7) {
 			score.innerHTML = 'Correct Answer! +1pt <br/> Time bonus! +1pt';
 			totalscore += 2;
 		}
