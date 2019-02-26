@@ -161,6 +161,9 @@ if (window.location.href == "https://shaunlxw.github.io/whereindhs/game.html") {
 }
 
 function animatestart() {
+	var pickqn = Math.floor(Math.random()*questions.length);
+	currqn = questions[pickqn];
+	document.getElementById('picture').src = currqn.pic;
 	// Animate start
 	var animate = document.getElementById('animate');
 	var size = 5;
@@ -177,9 +180,6 @@ function animatestart() {
 	}
 }
 function start() {
-	var pickqn = Math.floor(Math.random()*questions.length);
-	currqn = questions[pickqn];
-	document.getElementById('picture').src = currqn.pic;
 	setTimeout(function() {
 		document.getElementById('animate').parentNode.removeChild(animate);
 		document.getElementById('answers').style.zIndex = 3;
