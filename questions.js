@@ -156,7 +156,7 @@ if (window.location.href == "https://shaunlxw.github.io/whereindhs/") {
 }
 
 if (window.location.href == "https://shaunlxw.github.io/whereindhs/game.html") {
-	questions = sessionStorage.getItem('questions');
+	questions = JSON.parse(sessionStorage.getItem('questions'));
 	window.onload = animatestart();
 }
 
