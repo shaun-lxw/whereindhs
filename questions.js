@@ -66,10 +66,13 @@ function getdata([qn, type]) {
 }
 var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
 'pics/canteenAns.JPG', ['q1', 'desc']);
+console.log('set q2')'
 var q2 = new Question('pics/paradesq.JPG', ['q2', 'ans'],
 'pics/paradesqAns.JPG', ['q2', 'desc']);
+console.log('set q3');
 var q3 = new Question('pics/platform.JPG', ['q3', 'ans'],
 'pics/platformAns.JPG', ['q3', 'desc']);
+console.log('set q4');
 var q4 = new Question('pics/zxy.JPG', ['q4', 'ans'],
 'pics/zxyAns.JPG', ['q4', 'desc']);
 var q5 = new Question('pics/bell.JPG', ['q5', 'ans'],
