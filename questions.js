@@ -66,7 +66,7 @@ function getdata([qn, type]) {
 }
 var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
 'pics/canteenAns.JPG', ['q1', 'desc']);
-console.log('set q2')'
+console.log('set q2');
 var q2 = new Question('pics/paradesq.JPG', ['q2', 'ans'],
 'pics/paradesqAns.JPG', ['q2', 'desc']);
 console.log('set q3');
