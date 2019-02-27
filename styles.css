@@ -79,13 +79,12 @@ h1 {
 }
 #desc {
 	display: none;
-	position: absolute;
-	top: 75vh;
-	left: 50vw;
-	font-size: 5vmin;
+	position: fixed;
+	top: 65vh;
+	width: 70vw;
+	left: 15vw; 
+	font-size: 4vmin;
 	color: white;
-	transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
 	text-align: center;
 }
 #anspic {
@@ -137,13 +136,10 @@ h1 {
 }
 #answers {
 	display: flex;
-	margin-left: auto;
-	margin-right: auto;
+	width: 100vw;
 	justify-content: center;
 	position: fixed;
-	left: 0;
-	right: 0;
-	
+	top: 50vh;
 }
 #prompt {
 	display: none;
