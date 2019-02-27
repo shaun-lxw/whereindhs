@@ -12,7 +12,6 @@ var config = {
 firebase.initializeApp(config);
 var AUTH = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
-var db = firebase.firestore();
 var USER;
 function signin() {
 	document.getElementById('signinbutton').innerHTML = 'Loading...';
@@ -67,6 +66,8 @@ AUTH.onAuthStateChanged(function(user) {
 	}
 	}
 	});
+//firestore
+var db = firebase.firestore();
 function storeresults() {
 	var userRef = db.collection('users').doc(USER.email);
 	var d = new Date();
@@ -146,26 +147,6 @@ if (window.location.href == "https://shaunlxw.github.io/whereindhs/") {
 	'pics/trackAns.JPG', ['q10', 'desc']);
 	var q11 = new Question('pics/bball.JPG', ['q11', 'ans'],
 	'pics/bballAns.JPG', ['q11', 'desc']);
-	var q12 = new Question('pics/podium.JPG', ['q12', 'ans'],
-	'pics/podiumAns.JPG', ['q12', 'desc']);
-	var q13 = new Question('pics/hostellocker.JPG', ['q13', 'ans'],
-	'pics/hostellockerAns.JPG', ['q13', 'desc']);
-	var q14 = new Question('pics/scoutswing.JPG', ['q14', 'ans'],
-	'pics/scoutswingAns.JPG', ['q14', 'desc']);
-	var q15 = new Question('pics/pac.JPG', ['q15', 'ans'],
-	'pics/pacAns.JPG', ['q15', 'desc']);
-	var q16 = new Question('pics/blockg.JPG', ['q16', 'ans'],
-	'pics/blockgAns.JPG', ['q16', 'desc']);
-	var q17 = new Question('pics/lt.JPG', ['q17', 'ans'],
-	'pics/ltAns.JPG', ['q17', 'desc']);
-	var q18 = new Question('pics/mrl.JPG', ['q18', 'ans'],
-	'pics/mrlAns.JPG', ['q1', 'desc']);
-	var q19 = new Question('pics/cafe.JPG', ['q19', 'ans'],
-	'pics/cafeAns.JPG', ['q19', 'desc']);
-	var q20 = new Question('pics/heritage.JPG', ['q20', 'ans'],
-	'pics/heritageAns.JPG', ['q20', 'desc']);
-	var q21 = new Question('pics/ssc.JPG', ['q21', 'ans'],
-	'pics/sscAns.JPG', ['q21', 'desc']);
 	//obj with properties pic, ans, anspic, desc, correct
 	function Question(pic, ans, anspic, desc) {
 		this.pic = pic;
@@ -216,6 +197,7 @@ function endgame() {
 	document.getElementById('desc').innerHTML = 'End of game. Total score: ' + totalscore;
 	document.getElementById('score').innerHTML = '';
 	document.getElementById('overlay').onclick = '';
+	document.getElementById('prompt').display = 'none';
 	on();
 	storeresults();
 }
