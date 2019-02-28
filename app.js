@@ -106,7 +106,6 @@ if (window.location.href == "https://shaunlxw.github.io/whereindhs/") {
 		db.collection('questions').doc(qn).get()
 		.then(function(doc) {
 		if (doc.exists) {
-			console.log("Document data:", doc.data());
 			if (type == 'ans') {
 				this[qn].ans = doc.data().ans;
 				this[qn].correct = doc.data().ans[0];
