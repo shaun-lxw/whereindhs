@@ -89,7 +89,8 @@ function storeresults() {
 	});
 }
 function updateleaderboard() {
-	db.collection('leaderboard').doc('leaderboard').get()
+	var ref = db.collection('leaderboard').doc('leaderboard');
+	ref.get()
 	.then(function(doc) {
 		if (doc.exists) {
 			// object with properties position 1-5 as array [name, score]
@@ -109,7 +110,7 @@ function updateleaderboard() {
 				else {
 					leaderboard.splice(i*2, 0, USER.displayName, totalscore);
 				}
-				db.collection('leaderboard').doc('leaderboard').set({
+				ref.set({
 					scores: leaderboard
 				})
 				.then(function() {
@@ -133,7 +134,7 @@ function updateleaderboard() {
 						}
 					}
 					leaderboard.splice(i*2, 0, USER.displayName, totalscore);
-					db.collection('leaderboard').doc('leaderboard').set({
+					ref.set({
 						scores: leaderboard
 					})
 					.then(function() {
@@ -150,6 +151,7 @@ function updateleaderboard() {
 		});
 }
 function showleaderboard() {
+	var ref = db.collection('leaderboard').doc('leaderboard');
 	
 }
 // ===============================================================	
