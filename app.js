@@ -97,6 +97,7 @@ function updateleaderboard() {
 			var leaderboard = doc.data().scores;
 			// leaderboard not full
 			if (leaderboard.length != 10) {
+				sessionStorage.setItem('highscore', true)
 				var i;
 				// find position to append info
 				for (i=0; i<((leaderboard.length/2)+1); i++) {
@@ -110,6 +111,7 @@ function updateleaderboard() {
 				else {
 					leaderboard.splice(i*2, 0, USER.displayName, totalscore);
 				}
+				//update leaderboard
 				ref.set({
 					scores: leaderboard
 				})
@@ -124,7 +126,7 @@ function updateleaderboard() {
 			else {
 				// player score higher than last player on leaderboard
 				if (totalscore > leaderboard[9]) {
-					console.log('changing leaderboard');
+					sessionStorage.setItem('highscore', true)
 					leaderboard.splice(8, 2);
 					var i;
 					// find position
@@ -134,6 +136,7 @@ function updateleaderboard() {
 						}
 					}
 					leaderboard.splice(i*2, 0, USER.displayName, totalscore);
+					//update leaderboard
 					ref.set({
 						scores: leaderboard
 					})
@@ -152,7 +155,22 @@ function updateleaderboard() {
 }
 function showleaderboard() {
 	var ref = db.collection('leaderboard').doc('leaderboard');
-	
+	ref.get().then(function(doc) {
+		var leaderboard = doc.data().scores;
+		document.getElementById('1posname').innerHTML = leaderboard[0];
+		document.getElementById('1posscore').innerHTML = leaderboard[1];
+		document.getElementById('2posname').innerHTML = leaderboard[2];
+		document.getElementById('2posscore').innerHTML = leaderboard[3];
+		document.getElementById('3posname').innerHTML = leaderboard[4];
+		document.getElementById('3posscore').innerHTML = leaderboard[5];
+		document.getElementById('4posname').innerHTML = leaderboard[6];
+		document.getElementById('4posscore').innerHTML = leaderboard[7];
+		document.getElementById('5posname').innerHTML = leaderboard[8];
+		document.getElementById('5posscore').innerHTML = leaderboard[9];
+	})
+	.catch(function(error){ 
+		console.log(error);
+	})
 }
 // ===============================================================	
 
@@ -394,4 +412,14 @@ function on() {
 }
 function off() {
   document.getElementById("overlay").style.display = "none";
+}
+
+if (window.location.href == "https://shaunlxw.github.io/whereindhs/results.html") {
+	showleaderboard();
+	if (sessionStorage.getItem('highscore')) {
+		document.getElementById('notice').innerHTML = 'Congratulations! You have gotten into the leaderboard!';
+	}
+	else {
+		document.getElementById('notice').innerHTML = 'Sorry, you did not get into the leaderboard this time :(';
+	}
 }
