@@ -300,7 +300,7 @@ function endgame() {
 	document.getElementById('anspic').src = '';
 	document.getElementById('desc').innerHTML = 'End of game. Total score: ' + totalscore;
 	document.getElementById('score').innerHTML = '';
-	document.getElementById('overlay').onclick = "function() {window.location.href = 'results.html'";
+	document.getElementById('overlay').onclick = function() {window.location.href = 'results.html'};
 	on();
 	storeresults();
 	updateleaderboard();
