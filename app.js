@@ -172,6 +172,8 @@ function showleaderboard() {
 		document.getElementById('4posscore').innerHTML = leaderboard[7];
 		document.getElementById('5posname').innerHTML = leaderboard[8];
 		document.getElementById('5posscore').innerHTML = leaderboard[9];
+		document.getElementById('spin').style.display = 'none';
+		document.getElementById('leaderboard').style.display = 'block';
 	})
 	.catch(function(error){ 
 		console.log(error);
