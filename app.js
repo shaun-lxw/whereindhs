@@ -95,7 +95,7 @@ function leaderboard() {
 			leaderboard = doc.data();
 			
 		}
-	}.catch(function(error) {
+	}).catch(function(error) {
 		console.log(error);
 	})
 }
