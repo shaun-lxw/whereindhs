@@ -101,7 +101,7 @@ function updateleaderboard() {
 				var i;
 				// find position to append info
 				for (i=0; i<((leaderboard.length/2)+1); i++) {
-					if (totalscore > leaderboard[(i*2)+1]) {
+					if (totalscore >= leaderboard[(i*2)+1]) {
 						break;
 					}
 				}
@@ -131,7 +131,7 @@ function updateleaderboard() {
 					var i;
 					// find position
 					for (i=0; i<5; i++) {
-						if (totalscore > leaderboard[(i*2)+1]) {
+						if (totalscore >= leaderboard[(i*2)+1]) {
 							break;					
 						}
 					}
