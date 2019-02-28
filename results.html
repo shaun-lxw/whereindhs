@@ -12,22 +12,28 @@
 	<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
 	<script src='app.js' defer></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body background='pics/dhs.jpg'>
 	<h1> Leaderboard </h1>
-	<div class="grid-container">
-		<div class="grid-item">Player</div>
-		<div class="grid-item">Score</div>
-		<div id='1posname' class="grid-item"></div>  
-		<div id='1posscore' class="grid-item"></div>
-		<div id='2posname' class="grid-item"></div>  
-		<div id='2posscore' class="grid-item"></div>
-		<div id='3posname' class="grid-item"></div>  
-		<div id='3posscore' class="grid-item"></div>
-		<div id='4posname' class="grid-item"></div>  
-		<div id='4posscore' class="grid-item"></div>
-		<div id='5posname' class="grid-item"></div>  
-		<div id='5posscore' class="grid-item"></div>
+	<div id='spin'>
+		<i class="fa fa-spinner fa-spin"></i>
+	</div>
+	<div id='leaderboard'>
+		<div class="grid-container">
+			<div class="grid-item">Player</div>
+			<div class="grid-item">Score</div>
+			<div id='1posname' class="grid-item"></div>  
+			<div id='1posscore' class="grid-item"></div>
+			<div id='2posname' class="grid-item"></div>  
+			<div id='2posscore' class="grid-item"></div>
+			<div id='3posname' class="grid-item"></div>  
+			<div id='3posscore' class="grid-item"></div>
+			<div id='4posname' class="grid-item"></div>  
+			<div id='4posscore' class="grid-item"></div>
+			<div id='5posname' class="grid-item"></div>  
+			<div id='5posscore' class="grid-item"></div>
+		</div>
 	</div>
 	<p id='notice' class='indexp'></p>
 </body>
