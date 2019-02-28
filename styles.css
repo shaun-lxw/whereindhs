@@ -174,9 +174,14 @@ h1 {
 }
 
 .grid-item {
-	background-color: rgba(255, 255, 255, 0.8);
 	font-family: 'Contrail One';
 	height: 8.5vh;
-	font-size: 4.7vmin;
+	font-size: 3.7vmin;
 	text-align: center;
+}
+#notice {
+	font-size: 6vmin;
+	width: 75vw; 
+	margin-left: auto;
+	margin-right: auto;
 }
