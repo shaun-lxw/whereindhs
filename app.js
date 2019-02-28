@@ -123,7 +123,7 @@ function updateleaderboard() {
 			// leaderboard full
 			else {
 				// player score higher than last player on leaderboard
-				if (totalscore > leaderboard[-1]) {
+				if (totalscore > leaderboard[9]) {
 					console.log('changing leaderboard');
 					leaderboard.splice(8, 2);
 					var i;
