@@ -170,7 +170,7 @@ h1 {
 .grid-container {
 	display: grid;
 	justify-content: center;
-	grid-template-columns: 35vw 35vw;
+	grid-template-columns: 30vw 30vw 30vw;
 }
 
 .grid-item {
@@ -180,7 +180,7 @@ h1 {
 	text-align: center;
 }
 #leaderboard {
-	display: none;
+	display: block;
 }
 #notice {
 	font-size: 6vmin;
@@ -189,6 +189,7 @@ h1 {
 	margin-right: auto;
 }
 #spin {
+	display: none;
 	text-align: center;
 	font-size: 9vmin;
 }
