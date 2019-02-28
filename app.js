@@ -157,6 +157,11 @@ function showleaderboard() {
 	var ref = db.collection('leaderboard').doc('leaderboard');
 	ref.get().then(function(doc) {
 		var leaderboard = doc.data().scores;
+		for (var i = 0; i<10; i++) {
+			if (!leaderboard[i]) {
+				leaderboard[i] = null;
+			}
+		}
 		document.getElementById('1posname').innerHTML = leaderboard[0];
 		document.getElementById('1posscore').innerHTML = leaderboard[1];
 		document.getElementById('2posname').innerHTML = leaderboard[2];
