@@ -134,7 +134,7 @@ function leaderboard() {
 					}
 					leaderboard.splice(i*2, 0, USER.displayName, totalscore);
 					db.collection('leaderboard').doc('leaderboard').set({
-						scores = leaderboard
+						scores: leaderboard
 					})
 					.then(function() {
 						console.log("Document successfully written!");
