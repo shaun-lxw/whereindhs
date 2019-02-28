@@ -88,7 +88,7 @@ function storeresults() {
 		console.error("Error writing document: ", error);
 	});
 }
-function leaderboard() {
+function updateleaderboard() {
 	db.collection('leaderboard').doc('leaderboard').get()
 	.then(function(doc) {
 		if (doc.exists) {
@@ -123,8 +123,8 @@ function leaderboard() {
 			else {
 				// player score higher than last player on leaderboard
 				if (totalscore > leaderboard[-1]) {
-					leaderboard.pop();
-					leaderboard.pop();
+					console.log('changing leaderboard');
+					leaderboard.splice(8, 2);
 					var i;
 					// find position
 					for (i=0; i<5; i++) {
@@ -163,6 +163,7 @@ var buttid = ['first','second','third','fourth'];
 // init correct ans
 var correctans;
 var totalscore=0;
+var timetaken = 0;
 var questions = [];
 if (window.location.href == "https://shaunlxw.github.io/whereindhs/") {
 	// initialize questions, store in sessionStorage
@@ -283,7 +284,7 @@ function endgame() {
 	document.getElementById('prompt').style.display = 'none';
 	on();
 	storeresults();
-	leaderboard();
+	updateleaderboard();
 }
 function randQ() {
 	// startqn
