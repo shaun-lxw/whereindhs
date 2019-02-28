@@ -179,9 +179,16 @@ h1 {
 	font-size: 3.7vmin;
 	text-align: center;
 }
+#leaderboard {
+	display: none;
+}
 #notice {
 	font-size: 6vmin;
 	width: 75vw; 
 	margin-left: auto;
 	margin-right: auto;
+}
+#spin {
+	text-align: center;
+	font-size: 9vmin;
 }
