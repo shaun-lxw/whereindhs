@@ -230,7 +230,7 @@ function endgame() {
 	document.getElementById('prompt').display = 'none';
 	on();
 	storeresults();
-	leaderboard();
+	// leaderboard();
 }
 function randQ() {
 	// startqn
