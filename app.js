@@ -88,6 +88,17 @@ function storeresults() {
 		console.error("Error writing document: ", error);
 	});
 	}
+function leaderboard() {
+	db.collection('leaderboard').doc('leaderboard').get()
+	.then(function(doc) {
+		if (doc.exists) {
+			leaderboard = doc.data();
+			
+		}
+	}.catch(function(error) {
+		console.log(error);
+	})
+}
 // ===============================================================	
 
 // Number of questions in quiz
@@ -219,6 +230,7 @@ function endgame() {
 	document.getElementById('prompt').display = 'none';
 	on();
 	storeresults();
+	leaderboard();
 }
 function randQ() {
 	// startqn
