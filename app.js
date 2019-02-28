@@ -87,17 +87,67 @@ function storeresults() {
 	.catch(function(error) {
 		console.error("Error writing document: ", error);
 	});
-	}
+}
 function leaderboard() {
 	db.collection('leaderboard').doc('leaderboard').get()
 	.then(function(doc) {
 		if (doc.exists) {
-			leaderboard = doc.data();
-			
+			// object with properties position 1-5 as array [name, score]
+			var leaderboard = doc.data().scores;
+			// leaderboard not full
+			if (leaderboard.length != 10) {
+				var i;
+				// find position to append info
+				for (i=0; i<((leaderboard.length/2)+1); i++) {
+					if (totalscore > leaderboard[(i*2)+1]) {
+						break;
+					}
+				}
+				if (i*2 == leaderboard.length) {
+					leaderboard.push(USER.displayName, totalscore);
+				}
+				else {
+					leaderboard.splice(i*2, 0, USER.displayName, totalscore);
+				}
+				db.collection('leaderboard').doc('leaderboard').set({
+					scores = leaderboard
+				})
+				.then(function() {
+					console.log("Document successfully written!");
+				})
+				.catch(function(error) {
+					console.log(error);
+				});
+			}
+			// leaderboard full
+			else {
+				// player score higher than last player on leaderboard
+				if (totalscore > leaderboard[-1]) {
+					leaderboard.pop();
+					leaderboard.pop();
+					var i;
+					// find position
+					for (i=0; i<5; i++) {
+						if (totalscore > leaderboard[(i*2)+1]) {
+							break;					
+						}
+					}
+					leaderboard.splice(i*2, 0, USER.displayName, totalscore);
+					db.collection('leaderboard').doc('leaderboard').set({
+						scores = leaderboard
+					})
+					.then(function() {
+						console.log("Document successfully written!");
+					})
+					.catch(function(error) {
+						console.log(error);
+					});
+				}
+			}
 		}
 	}).catch(function(error) {
 		console.log(error);
-	})
+		});
 }
 // ===============================================================	
 
@@ -227,10 +277,10 @@ function endgame() {
 	document.getElementById('desc').innerHTML = 'End of game. Total score: ' + totalscore;
 	document.getElementById('score').innerHTML = '';
 	document.getElementById('overlay').onclick = '';
-	document.getElementById('prompt').display = 'none';
+	document.getElementById('prompt').style.display = 'none';
 	on();
 	storeresults();
-	// leaderboard();
+	leaderboard();
 }
 function randQ() {
 	// startqn
