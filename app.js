@@ -251,7 +251,7 @@ if (window.location.href == "https://shaunlxw.github.io/whereindhs/") {
 	var q17 = new Question('pics/lt.JPG', ['q17', 'ans'],
 	'pics/ltAns.JPG', ['q17', 'desc']);
 	var q18 = new Question('pics/mrl.JPG', ['q18', 'ans'],
-	'pics/mrlAns.JPG', ['q1', 'desc']);
+	'pics/mrlAns.JPG', ['q18', 'desc']);
 	var q19 = new Question('pics/cafe.JPG', ['q19', 'ans'],
 	'pics/cafeAns.JPG', ['q19', 'desc']);
 	var q20 = new Question('pics/heritage.JPG', ['q20', 'ans'],
