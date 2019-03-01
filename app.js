@@ -422,7 +422,7 @@ function off() {
 
 if (window.location.href == "https://shaunlxw.github.io/whereindhs/results.html") {
 	showleaderboard();
-	if (sessionStorage.getItem('highscore')) {
+	if (sessionStorage.getItem('highscore') == true) {
 		document.getElementById('notice').innerHTML = 'Congratulations! You have gotten into the leaderboard!';
 	}
 	else {
