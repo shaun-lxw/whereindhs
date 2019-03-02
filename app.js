@@ -62,7 +62,7 @@ AUTH.onAuthStateChanged(function(user) {
 		document.getElementById('qn').style.display = 'none';
 		document.getElementById('signinbutton').style.display = 'block';
 		document.getElementById('signinbutton').disabled = false;
-		document.getElementById('signinbutton').innerHTML = 'Sign in with Gmail!';
+		document.getElementById('signinbutton').innerHTML = 'Sign in with Google!';
 	}
 	}
 	});
@@ -147,6 +147,9 @@ function updateleaderboard() {
 						console.log(error);
 					});
 				}
+				else {
+					sessionStorage.setItem('highscore', false);
+				}
 			}
 		}
 	}).catch(function(error) {
@@ -208,6 +211,7 @@ if (window.location.href == "https://shaunlxw.github.io/whereindhs/") {
 		if (this[qn].ans && this[qn].desc) {
 			questions.push(this[qn])
 			sessionStorage.setItem('questions', JSON.stringify(questions));
+			console.log('Questions stored');
 		}
 		}	
 		else {
