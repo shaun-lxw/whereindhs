@@ -12,6 +12,10 @@ var config = {
 firebase.initializeApp(config);
 var AUTH = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
+// choice of accounts so the one logged in account will not be forced to be used
+provider.setCustomParameters({
+  prompt: 'select_account'
+});
 var USER;
 function signin() {
 	document.getElementById('signinbutton').innerHTML = 'Loading...';
