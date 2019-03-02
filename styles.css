@@ -176,20 +176,22 @@ h1 {
 
 .grid-item {
 	font-family: 'Contrail One';
-	height: 8.5vh;
-	font-size: 3.7vmin;
+	height: 8vh;
+	font-size: 3.3vmin;
 	text-align: center;
 }
 #leaderboard {
 	display: none;
 }
 #notice {
-	font-size: 6vmin;
+	font-size: 5.5vmin;
 	width: 75vw; 
-	margin-left: auto;
-	margin-right: auto;
+	margin: 2.5vh auto auto;
 }
 #spin {
 	text-align: center;
 	font-size: 9vmin;
+}
+#playagain {
+	display: none;
 }
