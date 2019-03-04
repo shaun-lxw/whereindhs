@@ -1,6 +1,8 @@
 // firestore
 // ===================================================================
 // Initialize Firebase
+// Insert your own Firebase config (found at firebase console => authentication => web setup => 
+// insert code between the second script tag)
 var config = {
 	apiKey: "AIzaSyCvpA372tjk1E7lOAks4STgllDxwPdQy1Y",
 	authDomain: "whereindhs.firebaseapp.com",
@@ -10,6 +12,7 @@ var config = {
 	messagingSenderId: "642970983978"
 };
 firebase.initializeApp(config);
+
 var AUTH = firebase.auth();
 var provider = new firebase.auth.GoogleAuthProvider();
 // choice of accounts so the one logged in account will not be forced to be used
@@ -36,6 +39,7 @@ function signout() {
 	  console.log('Error signing out:' + error);
 	});
 }
+// observer that listens for changes of authentication state i.e. when user signs in or signs out
 AUTH.onAuthStateChanged(function(user) {
 	if (user) {
 	USER = user;
@@ -200,8 +204,10 @@ var correctans;
 var totalscore=0;
 var timetaken = 0;
 var questions = [];
+
+// initialize questions, store in sessionStorage when users are signing in 
+//change the link in the 'if' line to the starting page of your app where user will be prompted to sign in
 if (window.location.href == "https://shaunlxw.github.io/whereindhs/") {
-	// initialize questions, store in sessionStorage
 	function getdata([qn, type]) {
 		db.collection('questions').doc(qn).get()
 		.then(function(doc) {
