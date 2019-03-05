@@ -1,4 +1,8 @@
-# whereindhs
-savingtheworld2019
-completed...?
-world saved ya?
+# Where@DHS
+
+## Set-up
+
+```
+git clone this repository
+```
+
