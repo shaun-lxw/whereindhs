@@ -132,8 +132,8 @@ function updateleaderboard() {
 			}
 			// leaderboard full
 			else {
-				// player score higher than last player on leaderboard
-				if (totalscore > leaderboard[9]) {
+				// player score higher than or equal last player on leaderboard
+				if (totalscore >= leaderboard[9]) {
 					sessionStorage.setItem('highscore', true)
 					leaderboard.splice(8, 2);
 					var i;
