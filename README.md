@@ -18,4 +18,5 @@ clone this repository on github
 4. Go to Authentication tab and click on web setup
 5. Copy the code (var config...) between the second script tags and replace the one in app.js
 6. Enable google authentication at sign-in method tab and add your domain to the authorized domain at the bottom of that tab
-7. Paste this into the rules for your firestore database
+7. Go to Database tab and create your firestore 
+8. Write your own firestore rules!
