@@ -231,6 +231,7 @@ if (window.location.href == "https://shaunlxw.github.io/whereindhs/") {
 		}
 		});
 	}
+	// object Question(questionpicture, array of ans from firestore, answerpicture, description of place/answer)
 	var q1 = new Question('pics/canteen.JPG', ['q1', 'ans'],
 	'pics/canteenAns.JPG', ['q1', 'desc']);
 	var q2 = new Question('pics/paradesq.JPG', ['q2', 'ans'],
