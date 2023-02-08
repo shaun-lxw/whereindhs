@@ -207,7 +207,7 @@ var questions = [];
 
 // initialize questions, store in sessionStorage when users are signing in 
 //change the link in the 'if' line to the starting page of your app where user will be prompted to sign in
-if (window.location.href == "https://shaun-lxw.github.io/whereindhs/") {
+if (window.location.href == "https://shaunlxw.github.io/whereindhs/") {
 	function getdata([qn, type]) {
 		db.collection('questions').doc(qn).get()
 		.then(function(doc) {
@@ -283,7 +283,7 @@ if (window.location.href == "https://shaun-lxw.github.io/whereindhs/") {
 	}
 }
 
-if (window.location.href == "https://shaun-lxw.github.io/whereindhs/game.html") {
+if (window.location.href == "https://shaunlxw.github.io/whereindhs/game.html") {
 	questions = JSON.parse(sessionStorage.getItem('questions'));
 	window.onload = animatestart();
 }
@@ -436,7 +436,7 @@ function off() {
   document.getElementById("overlay").style.display = "none";
 }
 
-if (window.location.href == "https://shaun-lxw.github.io/whereindhs/results.html") {
+if (window.location.href == "https://shaunlxw.github.io/whereindhs/results.html") {
 	showleaderboard();
 	if (sessionStorage.getItem('highscore') == 'true') {
 		document.getElementById('notice').innerHTML = 'Congratulations! You have gotten into the leaderboard!';
